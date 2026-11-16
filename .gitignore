@@ -1,3 +1,16 @@
 .env
 .env.*
 CLAUDE.local.md
+
+# Node / Astro
+node_modules/
+dist/
+.astro/
+
+# Tests
+test-results/
+playwright-report/
+coverage/
+
+# Raw dictionary dumps (download in import script, do not commit)
+data/raw/

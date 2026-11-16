@@ -1,36 +1,28 @@
 # deutsch-regeln
 
-Requirements: SPEC.md. Stages and status: PLAN.md.
+Requirements: SPEC.md. Stages and status: PLAN.md. Talk to the owner in Russian; code, docs and commits in English.
 
 ## Commands
-<!-- build, run, test commands Claude can't guess; skip stock usage of standard tools (venv + pip install, npm install, pytest file::test) -->
-
-## Code style
-<!-- only rules that differ from language defaults -->
-
-## Testing
-<!-- runner and project-specific test conventions; a single-test command only if it is non-standard -->
+Created in PLAN stage 1:
+- `npm run check` — astro check + content checks (schema, every example word in dictionary)
+- `npm test` — Vitest
+- `npm run e2e` — Playwright, desktop and phone viewports
 
 ## Git
-- Commit and push after each PLAN.md stage; update its status.
+- One PLAN.md stage = one branch `stage-<N>-<slug>` + one PR to `main`. The owner merges; never push to `main` directly.
+- Run all three commands before opening the PR. Update the stage status in PLAN.md in the same PR; "done" only with the commands run and their output in the PR description. No screenshots.
+- Commit style: `feat:`, `fix:`, `content:`, `docs:`, `chore:`, `test:`.
 
 ## Architecture
-<!-- project-specific decisions -->
+- Starlight (Astro) + TypeScript, static output, no server. Override Starlight components instead of forking it.
+- Rule articles: MDX in `src/content/docs/`, folder tree = rule tree. Dictionary: JSON in `data/dictionary/`.
+- Translations are per-language maps (`{de, ru}`), never two hard-coded fields: English comes later.
+- Rules search: Pagefind with weights. Dictionary search: own form → lemma index, chunked, lazy-loaded.
 
-## Environment
-<!-- required env vars (names only), quirks -->
+## Content
+- New or changed articles get `status: unreviewed`; set `reviewed` only after the owner approves.
+- Every German word in examples must resolve in the dictionary: add missing entries, annotate ambiguous forms, mark proper names.
 
 ## Gotchas
-<!-- non-obvious behavior -->
-
-<!--
-Rules (delete this comment when filling):
-- Keep it short. Keep a line only if removing it would cause mistakes.
-- Exclude: what the code shows, standard conventions, API docs (link instead),
-  frequently changing info, tutorials, file-by-file descriptions, generic advice
-  (e.g. "never commit secrets": Environment and .gitignore already cover it), secrets,
-  requirements and behavior SPEC.md describes. Keep what Claude needs every session
-  even if SPEC.md has it too: commands, stack, env var names, gotchas.
-- Move detail into separate files and import with @path/to/file.
-- Remove empty sections.
--->
+- GitHub Pages serves under `/deutsch-regeln/`: use Astro `base`, never root-absolute links.
+- Cloud sessions: Playwright's Chromium is preinstalled; don't run `playwright install`. If the pinned Playwright can't find it, use `executablePath: '/opt/pw-browsers/chromium'`.
