@@ -1,6 +1,6 @@
-# Rule tree outline (draft)
+# Rule tree outline
 
-Status: **draft, awaiting owner approval** (PLAN stage 2).
+Status: **approved by the owner on 2026-11-19** (PLAN stage 2); sections 2 and 3 deferred.
 
 The full numbered tree of grammar topics, A1–C1. Each node is one article with exactly one place in the tree.
 Format: **number** German title — *Russian title* · level. Parentheses give the scope, marker words or where a related topic lives.
@@ -11,7 +11,7 @@ Format: **number** German title — *Russian title* · level. Parentheses give t
 - **Level 2 — what the sentence consists of and what it expresses:** its parts and types, word order, time, mood, voice, negation, complex sentences, punctuation, and **words** (`1.9 Wörter`).
 - **Level 3 — kinds of words:** Verb, Substantiv, Artikel, Pronomen, Adjektiv, … under `1.9 Wörter`; also word formation and spelling, which are about words.
 - Tense (`1.4 Zeit`), mood (`1.5 Modus`) and voice (`1.6 Passiv`) are properties of the whole sentence, so they sit at level 2, as *Zeit* does in the SPEC example; the verb section keeps the verb's own forms and government.
-- Outside the sentence: `2 Text` (what is built from sentences: letters, style, cohesion) and `3 Übersichten` (cross-cutting overviews).
+- Outside the sentence (deferred for now): Text (letters, style, cohesion) and Übersichten (cross-cutting overviews).
 
 ## Conventions
 
@@ -20,7 +20,7 @@ Format: **number** German title — *Russian title* · level. Parentheses give t
 - **Numbers come from the order.** In stage 4 the numbering is generated from the order of the content folders, so inserting a node renumbers its siblings automatically; numbers are not stored in articles.
 - **Overview topics** (section 3) are cross-cutting: they collect what is spread over several branches (e.g. Dativ: verbs, prepositions, article and adjective endings) and link to the specific articles. Specific articles link back to their overview. A parent node that already gives an overview of its own branch (e.g. `1.4 Zeit` for all tenses) gets no separate overview.
 - **No duplicates.** Where a topic could live in two places, it lives in one and the other links to it (e.g. relative pronouns live in Relativsätze, not in Pronomen; *als ob* lives in Vergleichssätze, not in Konjunktiv II; conjunctions live in Zusammengesetzter Satz, not in Wörter).
-- **Office / IT / business** emphasis shows in examples (tier `office`) and in dedicated nodes: Funktionsverbgefüge, prepositions in business language, Anglizismen in Büro und IT, Bindestrich, Abkürzungen, Anrede und Gruß.
+- **Office / IT / business** emphasis shows in examples (tier `office`) and in dedicated nodes: Funktionsverbgefüge, prepositions in business language, Anglizismen in Büro und IT, Bindestrich, Abkürzungen.
 
 ## Tree
 
@@ -239,12 +239,38 @@ Format: **number** German title — *Russian title* · level. Parentheses give t
     - **1.10.1** Komma zwischen Haupt- und Nebensatz — *Запятая между главным и придаточным* · B1
     - **1.10.2** Komma bei Aufzählungen, Einschüben und Appositionen — *Запятая при перечислении, вставках и приложениях* · B1
     - **1.10.3** Komma bei Infinitivgruppen — *Запятая при инфинитивных группах* · B2
-- **2** Text — *Текст* · A2
+
+## Counts
+
+215 nodes (articles) under `1 Satz`, at most 5 levels deep; 16 more in the deferred sections.
+
+| Level | Nodes |
+|---|---|
+| A1 | 71 |
+| A2 | 56 |
+| B1 | 53 |
+| B2 | 28 |
+| C1 | 7 |
+
+## Decisions
+
+| Date | Question | Decision |
+|---|---|---|
+| 2026-11-19 | Top level | Owner: level 1 is the sentence, level 2 what it consists of (incl. words), level 3 the kinds of words. |
+| 2026-11-19 | Sections 2 Text and 3 Übersichten | Owner: deferred for now (moved to "Deferred" below). |
+| 2026-11-19 | Tree under `1 Satz` | Owner: approved; content is written top-down along this list. Each topic is covered briefly but fully; the text is approved by the owner before it is coded. |
+| 2026-11-19 | Zeit, Modus, Passiv at level 2; Rechtschreibung and Zeichensetzung kept; C1 as is | Kept as drafted (no objection from the owner); can change later. |
+
+## Deferred
+
+Not in the active tree; may return later. Note: SPEC check 2 ("Dativ" → a tagged overview rule ranks first) needs an overview article, e.g. 3.1.3 Dativ, by stage 8.
+
+- **(2)** Text — *Текст* · A2
   - **2.1** Anrede und Gruß in E-Mails und Briefen — *Обращение и приветствие в письмах* · A2
   - **2.2** Schriftsprache und Umgangssprache (Präteritum/Perfekt, Genitiv/von, weil mit Verbzweitstellung) — *Письменная и разговорная речь* · B2
   - **2.3** Textverknüpfung (dabei, dadurch, hierzu, Ersteres – Letzteres) — *Связность текста* · B2
   - **2.4** Nominalstil und Verbalstil (weil er krank war ↔ wegen seiner Krankheit) — *Именной и глагольный стиль* · C1
-- **3** Übersichten — *Обзоры* · A1
+- **(3)** Übersichten — *Обзоры* · A1
   - **3.1** Kasus — *Падежи: обзор* · A1
     - **3.1.1** Nominativ — *Именительный падеж* · A1
     - **3.1.2** Akkusativ — *Винительный падеж* · A1
@@ -255,28 +281,3 @@ Format: **number** German title — *Russian title* · level. Parentheses give t
   - **3.4** Unregelmäßige Verben (Stammformen) — *Неправильные глаголы: основные формы* · A2
   - **3.5** Das Verb werden (Vollverb, Futur, Passiv, Konjunktiv II) — *Глагол werden: все функции* · B1
   - **3.6** Feste Präpositionen (Verben, Adjektive, Substantive) — *Устойчивое управление: сводный список* · B1
-
-## Counts
-
-231 nodes (articles) in 3 top-level sections, at most 5 levels deep.
-
-| Level | Nodes |
-|---|---|
-| A1 | 76 |
-| A2 | 61 |
-| B1 | 56 |
-| B2 | 30 |
-| C1 | 8 |
-
-## Decisions
-
-| Question | Decision |
-|---|---|
-| Top level | Owner: level 1 is the sentence, level 2 what it consists of (incl. words), level 3 the kinds of words. |
-
-## Open questions for the owner
-
-1. **Text and Übersichten** are top-level siblings of `1 Satz` (they are above or across the sentence). Alternative: put them under `1 Satz` too.
-2. **Zeit, Modus, Passiv at level 2** (sentence properties) instead of under Verb. Alternative: under `1.9.1 Verb`, one level deeper.
-3. **Sections Rechtschreibung (1.9.11), Zeichensetzung (1.10) and Text (2)** go beyond grammar in the narrow sense but are useful for office writing. Keep, trim or drop?
-4. **C1 coverage** is thin; more C1 topics can be added later, or now if you have specific ones in mind.

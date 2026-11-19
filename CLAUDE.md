@@ -22,6 +22,7 @@ Created in PLAN stage 1:
 
 ## Content
 - New or changed articles get `status: unreviewed`; set `reviewed` only after the owner approves.
+- Article texts are written top-down along `docs/outline.md` and approved by the owner in chat before they are coded into MDX. Approved texts are saved in `docs/texts/` (one file per top-level branch) so they survive between sessions.
 - Every German word in examples must resolve in the dictionary: add missing entries, annotate ambiguous forms, mark proper names.
 
 ## Gotchas
