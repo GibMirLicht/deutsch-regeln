@@ -17,8 +17,10 @@ export default defineConfig({
     { name: 'phone', use: { ...devices['Pixel 7'] } },
   ],
   // Tests run against the production build, as deployed (Pagefind only exists there).
+  // --ignore-lock keeps `astro preview` in the foreground: when Astro detects an AI agent
+  // it would otherwise start a background server and exit, which Playwright treats as a crash.
   webServer: {
-    command: `npm run build && npm run preview -- --host 127.0.0.1 --port ${PORT}`,
+    command: `npm run build && npm run preview -- --host 127.0.0.1 --port ${PORT} --ignore-lock`,
     url: `http://127.0.0.1:${PORT}/deutsch-regeln/`,
     reuseExistingServer: !process.env.CI,
     timeout: 180_000,
