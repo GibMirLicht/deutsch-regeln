@@ -9,7 +9,8 @@ Created in PLAN stage 1:
 - `npm run e2e` — Playwright, desktop and phone viewports
 
 ## Git
-- One PLAN.md stage = one branch `stage-<N>-<slug>` + one PR to `main`. The owner merges; never push to `main` directly.
+- One PLAN.md stage = one branch `stage-<N>-<slug>` + one PR to `main`. The owner decides, Claude executes: merge a PR only after the owner's explicit go-ahead in chat for that PR. Never push to `main` directly.
+- When asking for a decision, explain in plain words what the PR changes for the owner and what happens after the merge.
 - Run all three commands before opening the PR. Update the stage status in PLAN.md in the same PR; "done" only with the commands run and their output in the PR description. No screenshots.
 - Commit style: `feat:`, `fix:`, `content:`, `docs:`, `chore:`, `test:`.
 
