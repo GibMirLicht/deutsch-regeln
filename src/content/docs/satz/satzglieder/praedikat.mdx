@@ -1,0 +1,45 @@
+---
+title: { de: Prädikat, ru: Сказуемое }
+level: A1
+order: 2
+status: unreviewed
+tags: [Prädikat, сказуемое, konjugiertes Verb, спрягаемый глагол, Verbteile, Kongruenz, согласование]
+---
+import P from '~/components/P.astro';
+import BiTable from '~/components/BiTable.astro';
+import Analysis from '~/components/Analysis.astro';
+import { subjektPraedikat } from '~/examples/subjekt-praedikat.ts';
+
+<P t={{
+  de: 'Das Prädikat besteht aus dem konjugierten Verb und gegebenenfalls weiteren Verbteilen.',
+  ru: 'Сказуемое состоит из спрягаемого глагола и его частей.',
+}} />
+
+<BiTable
+  head={[{ de: 'Aufbau', ru: 'Строение' }, { de: 'Beispiel', ru: 'Пример' }]}
+  rows={[
+    [{ de: 'konjugiertes Verb', ru: 'спрягаемый глагол' }, { de: 'Sie **arbeitet**.', ru: 'Она **работает**.' }],
+    [{ de: 'Verb + Präfix', ru: 'глагол + отделяемая приставка' }, { de: 'Sie **ruft** den Kunden **an**.', ru: 'Она **звонит** клиенту.' }],
+    [{ de: 'haben / sein + Partizip II', ru: 'haben / sein + причастие II (прошедшее время)' }, { de: 'Sie **hat** den Kunden **angerufen**.', ru: 'Она **позвонила** клиенту.' }],
+    [{ de: 'Modalverb + Infinitiv', ru: 'модальный глагол + инфинитив' }, { de: 'Sie **muss** den Kunden **anrufen**.', ru: 'Она **должна позвонить** клиенту.' }],
+    [{ de: 'werden + Infinitiv', ru: 'werden + инфинитив (будущее время)' }, { de: 'Sie **wird** den Kunden **anrufen**.', ru: 'Она **позвонит** клиенту.' }],
+    [{ de: 'werden + Partizip II', ru: 'werden + причастие II (пассив)' }, { de: 'Der Kunde **wird angerufen**.', ru: 'Клиенту **звонят**.' }],
+    [{ de: 'sein / werden / bleiben + Nomen oder Adjektiv', ru: 'sein / werden / bleiben + существительное или прилагательное (именное сказуемое)' }, { de: 'Sie **ist Projektleiterin**.', ru: 'Она **руководитель проекта**.' }],
+    [{ de: 'mehrere Verbteile', ru: 'несколько частей сразу' }, { de: 'Sie **hat** den Kunden **anrufen müssen**.', ru: 'Ей **пришлось позвонить** клиенту.' }],
+  ]}
+/>
+
+{/* Owner note: link "Person und Zahl" to the cases (Kasus) article once it exists. */}
+<P t={{
+  de: 'Das konjugierte Verb stimmt in Person und Zahl mit dem Subjekt überein: ich arbeite, du arbeitest, die Kollegen arbeiten.',
+  ru: 'Спрягаемый глагол согласуется с подлежащим в лице и числе: я работаю, ты работаешь, коллеги работают.',
+}} />
+
+<P t={{
+  de: 'Ein konjugiertes Verb ist in jedem Satz Pflicht, auch wo das Russische keins hat: Er **ist** Arzt.',
+  ru: 'Спрягаемый глагол обязателен в каждом предложении, даже там, где в русском его нет: Он врач.',
+}} />
+
+## Beispiele <span class="tr" lang="ru">Примеры</span>
+
+<Analysis examples={subjektPraedikat} />

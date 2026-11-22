@@ -1,0 +1,28 @@
+---
+/** A table whose every cell holds German text with its translation under it, in the same cell. */
+import Tr from './Tr.astro';
+import { assertTranslation, type Translation } from '../lib/i18n.ts';
+import { inline } from '../lib/inline.ts';
+
+interface Props {
+  head: unknown[];
+  rows: unknown[][];
+}
+const { head, rows } = Astro.props;
+const where = `<BiTable> in ${Astro.url.pathname}`;
+head.forEach((c, i) => assertTranslation(c, `${where}, header cell ${i + 1}`));
+rows.forEach((row, r) => {
+  if (row.length !== head.length) throw new Error(`${where}: row ${r + 1} has ${row.length} cells, header has ${head.length}`);
+  row.forEach((c, i) => assertTranslation(c, `${where}, row ${r + 1} cell ${i + 1}`));
+});
+const h = head as Translation[];
+const body = rows as Translation[][];
+---
+<table class="bitable">
+  <thead>
+    <tr>{h.map((c) => <th><span lang="de" set:html={inline(c.de)} /><Tr t={c} /></th>)}</tr>
+  </thead>
+  <tbody>
+    {body.map((row) => <tr>{row.map((c) => <td><span lang="de" set:html={inline(c.de)} /><Tr t={c} /></td>)}</tr>)}
+  </tbody>
+</table>

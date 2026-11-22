@@ -1,0 +1,57 @@
+---
+/**
+ * Sentence-analysis examples in one block that reads as a table: each part of the sentence with its label
+ * (DE, RU) above it, the translation of the whole sentence below. Parts wrap on narrow screens. `tier` is kept as data for the example-tier
+ * setting (PLAN stage 5) but not shown.
+ */
+import Tr from './Tr.astro';
+import { inline } from '../lib/inline.ts';
+import { roleLabel } from '../lib/roles.ts';
+
+interface Part {
+  role: string;
+  text: string;
+}
+interface Example {
+  tier?: 'basic' | 'advanced' | 'office';
+  parts: Part[];
+  /** Translations of the whole sentence, e.g. { ru: '…' }. */
+  tr: Record<string, string>;
+  /** Optional comment on the example, per language. */
+  note?: Record<string, string>;
+}
+interface Props {
+  examples: Example[];
+}
+const { examples } = Astro.props;
+const where = `<Analysis> in ${Astro.url.pathname}`;
+examples.forEach((ex, i) => {
+  if (!ex.parts?.length) throw new Error(`${where}: example ${i + 1} has no parts`);
+  if (!ex.tr?.ru?.trim()) throw new Error(`${where}: example ${i + 1} misses the "ru" translation`);
+});
+const labelled = examples.map((ex, i) => ({
+  ...ex,
+  labels: ex.parts.map((p, j) => roleLabel(p.role, `${where}, example ${i + 1} part ${j + 1}`)),
+}));
+---
+<div class="analysis">
+  {
+    labelled.map((ex) => (
+      <div class="analysis-row" data-tier={ex.tier}>
+        <div class="parts">
+          {ex.parts.map((p, j) => (
+            <div class="part-cell">
+              <span class="role" lang="de">{ex.labels[j]!.de}</span>
+              <Tr t={ex.labels[j]!} />
+              <strong class="part" lang="de" set:html={inline(p.text)} />
+            </div>
+          ))}
+        </div>
+        <div class="translation">
+          {Object.entries(ex.tr).map(([lang, text]) => <p class="tr" lang={lang} set:html={inline(text)} />)}
+          {ex.note && Object.entries(ex.note).map(([lang, text]) => <p class="tr note" lang={lang} set:html={inline(text)} />)}
+        </div>
+      </div>
+    ))
+  }
+</div>

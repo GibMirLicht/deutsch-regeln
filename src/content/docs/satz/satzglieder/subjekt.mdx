@@ -1,0 +1,34 @@
+---
+title: { de: Subjekt, ru: Подлежащее }
+level: A1
+order: 1
+status: unreviewed
+tags: [Subjekt, подлежащее, Nominativ, именительный, wer, was, es]
+---
+import P from '~/components/P.astro';
+import BiTable from '~/components/BiTable.astro';
+import Analysis from '~/components/Analysis.astro';
+import { subjektPraedikat } from '~/examples/subjekt-praedikat.ts';
+
+<P t={{
+  de: 'Das Subjekt steht im Nominativ und antwortet auf die Frage „Wer?“ oder „Was?“.',
+  ru: 'Подлежащее стоит в именительном падеже и отвечает на вопрос «Кто?» или «Что?».',
+}} />
+
+<BiTable
+  head={[{ de: 'Form', ru: 'Форма' }, { de: 'Beispiel', ru: 'Пример' }]}
+  rows={[
+    [{ de: 'Nomen', ru: 'Существительное' }, { de: '**Der Server** ist nicht erreichbar.', ru: '**Сервер** недоступен.' }],
+    [{ de: 'Pronomen', ru: 'Местоимение' }, { de: '**Er** ist nicht erreichbar.', ru: '**Он** недоступен.' }],
+    [{ de: 'Nebensatz', ru: 'Придаточное предложение' }, { de: '**Dass der Server ausfällt,** ist selten.', ru: '**То, что сервер отказывает,** бывает редко.' }],
+  ]}
+/>
+
+<P t={{
+  de: 'Ein Subjekt ist fast immer Pflicht. Ohne handelnde Person steht *es*: Es regnet. Es gibt ein Problem. Ohne Subjekt stehen nur der Imperativ (Komm bitte!) und manche Passivsätze (Hier wird nicht geraucht.).',
+  ru: 'Подлежащее обязательно почти всегда. Если действующего лица нет, ставится es: «Идёт дождь. Есть проблема». Без подлежащего бывают только повелительное наклонение («Приходи, пожалуйста!») и некоторые пассивные предложения («Здесь не курят»).',
+}} />
+
+## Beispiele <span class="tr" lang="ru">Примеры</span>
+
+<Analysis examples={subjektPraedikat} />

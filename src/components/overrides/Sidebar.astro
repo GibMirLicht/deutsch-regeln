@@ -1,0 +1,128 @@
+---
+/**
+ * Sidebar = the rule tree. A label opens its article; the arrow button beside it only opens or closes
+ * the list of subsections. The branch leading to the current page starts open.
+ */
+import { getCollection } from 'astro:content';
+import MobileMenuFooter from '@astrojs/starlight/components/MobileMenuFooter.astro';
+import TreeList from '../TreeList.astro';
+import { ancestorsOf, buildTree } from '../../lib/tree.ts';
+
+const articles = (await getCollection('docs')).filter((e) => e.data.kind === 'article' && e.data.titles && e.data.order);
+const tree = buildTree(articles.map((e) => ({ id: e.id, order: e.data.order!, titles: e.data.titles! })));
+const current = Astro.locals.starlightRoute.entry.id;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<nav aria-label="Дерево правил" class="rule-tree">
+  <TreeList nodes={tree} current={current} open={ancestorsOf(current)} base={base} />
+</nav>
+
+<div class="md:sl-hidden"><MobileMenuFooter /></div>
+
+<script>
+  const KEY = 'deutsch-regeln.tree-open';
+  const read = (): string[] => {
+    try {
+      return JSON.parse(sessionStorage.getItem(KEY) ?? '[]');
+    } catch {
+      return [];
+    }
+  };
+  const write = (ids: string[]) => {
+    try {
+      sessionStorage.setItem(KEY, JSON.stringify(ids));
+    } catch {
+      /* storage unavailable: branches still toggle on this page */
+    }
+  };
+  const setOpen = (button: HTMLElement, open: boolean) => {
+    button.setAttribute('aria-expanded', String(open));
+    const label = button.getAttribute('aria-label') ?? '';
+    button.setAttribute('aria-label', label.replace(/^(Свернуть|Развернуть)/, open ? 'Свернуть' : 'Развернуть'));
+    const list = document.getElementById(button.getAttribute('aria-controls') ?? '');
+    if (list) list.hidden = !open;
+  };
+
+  // Branches opened by hand earlier in this tab stay open across pages.
+  const remembered = new Set(read());
+  document.querySelectorAll<HTMLElement>('[data-tree-toggle]').forEach((button) => {
+    const id = button.closest('li')?.dataset.treeId ?? '';
+    if (remembered.has(id)) setOpen(button, true);
+    button.addEventListener('click', () => {
+      const open = button.getAttribute('aria-expanded') !== 'true';
+      setOpen(button, open);
+      if (open) remembered.add(id);
+      else remembered.delete(id);
+      write([...remembered]);
+    });
+  });
+</script>
+
+<style>
+  .rule-tree :global(ul.tree) {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .rule-tree :global(ul.tree ul.tree) {
+    padding-inline-start: 1rem;
+  }
+  .rule-tree :global(.tree-row) {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+  .rule-tree :global(.tree-toggle),
+  .rule-tree :global(.tree-spacer) {
+    flex: none;
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+  .rule-tree :global(.tree-toggle) {
+    display: grid;
+    place-items: center;
+    border: 0;
+    border-radius: 0.25rem;
+    background: transparent;
+    color: var(--sl-color-gray-3);
+    cursor: pointer;
+  }
+  .rule-tree :global(.tree-toggle:hover) {
+    background: var(--sl-color-gray-6);
+    color: var(--sl-color-white);
+  }
+  .rule-tree :global(.tree-toggle svg) {
+    transition: transform 0.15s;
+  }
+  .rule-tree :global(.tree-toggle[aria-expanded='true'] svg) {
+    transform: rotate(90deg);
+  }
+  .rule-tree :global(.tree-row a) {
+    flex: 1;
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.25rem;
+    color: var(--sl-color-gray-2);
+    text-decoration: none;
+    font-size: var(--sl-text-sm);
+  }
+  .rule-tree :global(.tree-row a:hover) {
+    color: var(--sl-color-white);
+  }
+  .rule-tree :global(.tree-row a[aria-current='page']) {
+    background: var(--sl-color-text-accent);
+    color: var(--sl-color-text-invert);
+  }
+  .rule-tree :global(.tree-row a[aria-current='page'] .tr) {
+    color: inherit;
+  }
+  .rule-tree :global(.tree-number) {
+    flex: none;
+    font-variant-numeric: tabular-nums;
+  }
+  .rule-tree :global(.tree-label) {
+    display: flex;
+    flex-direction: column;
+  }
+</style>

@@ -1,0 +1,113 @@
+---
+title: { de: Satzglieder, ru: Члены предложения }
+level: A1
+order: 1
+status: unreviewed
+tags: [Satzglied, Satzglieder, член предложения, Umstellprobe, Attribut, определение]
+---
+import P from '~/components/P.astro';
+import Ex from '~/components/Ex.astro';
+import BiTable from '~/components/BiTable.astro';
+import Analysis from '~/components/Analysis.astro';
+import Children from '~/components/Children.astro';
+
+<P t={{
+  de: 'Ein Satzglied besteht aus einem Wort oder aus einer Gruppe zusammengehöriger Wörter.',
+  ru: 'Член предложения состоит из одного слова или из группы связанных между собой слов.',
+}} />
+
+<P t={{
+  de: 'Ein Satzglied lässt sich nur als Ganzes umstellen, z. B. an die Stelle vor dem konjugierten Verb (Umstellprobe).',
+  ru: 'Член предложения переставляется только целиком, например на место перед спрягаемым глаголом (проба перестановкой).',
+}} />
+
+<Ex t={{
+  de: 'Der neue Kollege beginnt am Montag. → Am Montag beginnt der neue Kollege.',
+  ru: 'Новый коллега начинает в понедельник. → В понедельник начинает новый коллега.',
+}} />
+
+<BiTable
+  head={[
+    { de: 'Satzglied', ru: 'Член предложения' },
+    { de: 'Frage', ru: 'Вопрос' },
+    { de: 'Beispiel', ru: 'Пример' },
+  ]}
+  rows={[
+    [{ de: 'Subjekt', ru: 'Подлежащее' }, { de: 'Wer? Was?', ru: 'Кто? Что?' }, { de: '**Der Kunde** ruft an.', ru: '**Клиент** звонит.' }],
+    [{ de: 'Prädikat', ru: 'Сказуемое' }, { de: 'Was tut …? Was geschieht?', ru: 'Что делает …? Что происходит?' }, { de: 'Der Kunde **ruft** morgen **an**.', ru: 'Клиент завтра **позвонит**.' }],
+    [{ de: 'Akkusativobjekt', ru: 'Дополнение в винительном падеже' }, { de: 'Wen? Was?', ru: 'Кого? Что?' }, { de: 'Ich lese **den Vertrag**.', ru: 'Я читаю **договор**.' }],
+    [{ de: 'Dativobjekt', ru: 'Дополнение в дательном падеже' }, { de: 'Wem?', ru: 'Кому?' }, { de: 'Ich helfe **dem Kollegen**.', ru: 'Я помогаю **коллеге**.' }],
+    [{ de: 'Präpositionalobjekt', ru: 'Предложное дополнение' }, { de: 'Worauf? Auf wen? …', ru: 'На что? На кого? …' }, { de: 'Wir warten **auf die Antwort**.', ru: 'Мы ждём **ответа**.' }],
+    [{ de: 'Adverbiale Bestimmung', ru: 'Обстоятельство' }, { de: 'Wann? Wo? Wie? Warum?', ru: 'Когда? Где? Как? Почему?' }, { de: 'Wir treffen uns **um zehn Uhr**.', ru: 'Мы встречаемся **в десять часов**.' }],
+  ]}
+/>
+
+## Attribut <span class="tr" lang="ru">Определение</span>
+
+<P t={{
+  de: 'Ein Attribut beschreibt ein Nomen näher. Es steht im selben Satzglied wie das Nomen und ist kein eigenes Satzglied: Bei der Umstellprobe bleibt es beim Nomen.',
+  ru: 'Определение уточняет существительное: какой, чей, который. Оно входит в тот же член предложения, что и существительное, и самостоятельным членом предложения не является: при перестановке остаётся при своём существительном.',
+}} />
+
+<Ex t={{
+  de: 'Das Büro des Chefs liegt im dritten Stock. → Im dritten Stock liegt das Büro des Chefs.',
+  ru: 'Кабинет начальника находится на третьем этаже. → На третьем этаже находится кабинет начальника.',
+}} />
+
+<P t={{
+  de: '„des Chefs“ allein lässt sich nicht umstellen.',
+  ru: '«des Chefs» отдельно переставить нельзя.',
+}} />
+
+<BiTable
+  head={[{ de: 'Art des Attributs', ru: 'Вид определения' }, { de: 'Beispiel', ru: 'Пример' }]}
+  rows={[
+    [{ de: 'Adjektiv', ru: 'Прилагательное' }, { de: 'der **neue** Kollege', ru: '**новый** коллега' }],
+    [{ de: 'Nomen im Genitiv', ru: 'Существительное в родительном падеже' }, { de: 'das Büro **des Chefs**', ru: 'кабинет **начальника**' }],
+    [{ de: 'Präposition + Nomen', ru: 'Предлог + существительное' }, { de: 'der Termin **am Montag**', ru: 'встреча **в понедельник**' }],
+    [{ de: 'Adverb', ru: 'Наречие' }, { de: 'das Treffen **gestern**', ru: '**вчерашняя** встреча' }],
+    [{ de: 'Relativsatz', ru: 'Относительное придаточное' }, { de: 'der Bericht, **den ich geschrieben habe**', ru: 'отчёт, **который я написал**' }],
+  ]}
+/>
+
+## Beispiele <span class="tr" lang="ru">Примеры</span>
+
+<Analysis examples={[
+  {
+    tier: 'basic',
+    parts: [
+      { role: 'subjekt', text: 'Anna' },
+      { role: 'praedikat', text: 'kauft' },
+      { role: 'adverbiale-zeit', text: 'heute' },
+      { role: 'akkusativobjekt', text: 'Brot.' },
+    ],
+    tr: { ru: 'Анна сегодня покупает хлеб.' },
+  },
+  {
+    tier: 'advanced',
+    parts: [
+      { role: 'adverbiale-grund', text: 'Wegen des Streiks' },
+      { role: 'praedikat', text: 'blieben' },
+      { role: 'subjekt', text: 'viele Mitarbeiter' },
+      { role: 'adverbiale-zeit', text: 'gestern' },
+      { role: 'adverbiale-ort', text: 'zu Hause.' },
+    ],
+    tr: { ru: 'Из-за забастовки многие сотрудники вчера остались дома.' },
+  },
+  {
+    tier: 'office',
+    parts: [
+      { role: 'subjekt', text: 'Die Buchhaltung' },
+      { role: 'praedikat', text: 'schickt' },
+      { role: 'dativobjekt', text: 'Ihnen' },
+      { role: 'akkusativobjekt', text: 'die Rechnung' },
+      { role: 'adverbiale-zeit', text: 'morgen' },
+      { role: 'adverbiale-art', text: 'per E-Mail.' },
+    ],
+    tr: { ru: 'Бухгалтерия завтра пришлёт вам счёт по электронной почте.' },
+  },
+]} />
+
+## Unterthemen <span class="tr" lang="ru">Подразделы</span>
+
+<Children />

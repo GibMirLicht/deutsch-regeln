@@ -1,0 +1,66 @@
+---
+/** Header button that shows or hides every translation on the site; remembered per device. */
+---
+<button class="tr-toggle" type="button" aria-pressed="true" title="Показать или скрыть перевод">
+  <span class="label-long">Перевод</span><span class="label-short">RU</span>
+</button>
+
+<script>
+  import { SETTINGS_KEY, parseSettings } from '../lib/settings.ts';
+
+  const root = document.documentElement;
+  const read = () => {
+    try {
+      return parseSettings(localStorage.getItem(SETTINGS_KEY));
+    } catch {
+      return parseSettings(null);
+    }
+  };
+  const apply = (show: boolean) => {
+    if (show) delete root.dataset.tr;
+    else root.dataset.tr = 'hidden';
+    document.querySelectorAll('.tr-toggle').forEach((b) => b.setAttribute('aria-pressed', String(show)));
+  };
+  apply(read().global.translation);
+  document.querySelectorAll('.tr-toggle').forEach((button) =>
+    button.addEventListener('click', () => {
+      const settings = read();
+      settings.global.translation = !settings.global.translation;
+      try {
+        localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+      } catch {
+        /* storage unavailable: the toggle still works for this page */
+      }
+      apply(settings.global.translation);
+    }),
+  );
+</script>
+
+<style>
+  .tr-toggle {
+    margin-inline-start: 0.5rem;
+    padding: 0.35rem 0.6rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.5rem;
+    background: transparent;
+    color: var(--sl-color-gray-2);
+    font-size: var(--sl-text-sm);
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .label-long {
+    display: none;
+  }
+  @media (min-width: 50rem) {
+    .label-long {
+      display: inline;
+    }
+    .label-short {
+      display: none;
+    }
+  }
+  .tr-toggle[aria-pressed='true'] {
+    background: var(--sl-color-gray-6);
+    color: var(--sl-color-white);
+  }
+</style>

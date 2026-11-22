@@ -1,0 +1,30 @@
+---
+/** Page title: German, with the translation below it (hidden by the translation toggle). */
+import Tr from '../Tr.astro';
+
+// Starlight's PAGE_TITLE_ID; its constants module is not exported.
+const PAGE_TITLE_ID = '_top';
+
+const { data } = Astro.locals.starlightRoute.entry;
+const titles = 'titles' in data ? data.titles : undefined;
+---
+<h1 id={PAGE_TITLE_ID}>
+  {titles ? titles.de : data.title}
+  {titles && <Tr t={titles} />}
+</h1>
+
+<style>
+  h1 {
+    margin-top: 1rem;
+    font-size: var(--sl-text-h1);
+    line-height: var(--sl-line-height-headings);
+    font-weight: 600;
+    color: var(--sl-color-white);
+  }
+  h1 :global(.tr) {
+    display: block;
+    font-size: 0.5em;
+    font-weight: 400;
+    margin-top: 0.25rem;
+  }
+</style>
