@@ -260,6 +260,7 @@ Format: **number** German title — *Russian title* · level. Parentheses give t
 | 2026-11-19 | Top level | Owner: level 1 is the sentence, level 2 what it consists of (incl. words), level 3 the kinds of words. |
 | 2026-11-19 | Sections 2 Text and 3 Übersichten | Owner: deferred for now (moved to "Deferred" below). |
 | 2026-11-19 | Tree under `1 Satz` | Owner: approved; content is written top-down along this list. Each topic is covered briefly but fully; the text is approved by the owner before it is coded. |
+| 2026-11-22 | Root section `1 Satz` | Owner: no page of its own (it has no text); the tree starts at 1.1. Numbers keep the `1.` prefix. |
 | 2026-11-22 | 1.1.1 Subjekt und Prädikat | Owner: split into 1.1.1 Subjekt and 1.1.2 Prädikat. |
 | 2026-11-19 | Zeit, Modus, Passiv at level 2; Rechtschreibung and Zeichensetzung kept; C1 as is | Kept as drafted (no objection from the owner); can change later. |
 

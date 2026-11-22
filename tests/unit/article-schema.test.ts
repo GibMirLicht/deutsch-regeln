@@ -17,7 +17,7 @@ function issues(input: unknown): string[] {
 describe('article frontmatter', () => {
   it('accepts a complete article and derives the Starlight title and sidebar order', () => {
     const data = schema.parse(article) as Record<string, unknown>;
-    expect(data.title).toBe('Subjekt — Подлежащее');
+    expect(data.title).toBe('Subjekt');
     expect(data.titles).toEqual({ de: 'Subjekt', ru: 'Подлежащее' });
     expect(data.sidebar).toEqual({ order: 1 });
     expect(data.tags).toEqual([]);

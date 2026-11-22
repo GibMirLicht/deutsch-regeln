@@ -20,9 +20,9 @@ const body = rows as Translation[][];
 ---
 <table class="bitable">
   <thead>
-    <tr>{h.map((c) => <th><span lang="de" set:html={inline(c.de)} /><br /><Tr t={c} /></th>)}</tr>
+    <tr>{h.map((c) => <th><span lang="de" set:html={inline(c.de)} /><Tr t={c} /></th>)}</tr>
   </thead>
   <tbody>
-    {body.map((row) => <tr>{row.map((c) => <td><span lang="de" set:html={inline(c.de)} /><br /><Tr t={c} /></td>)}</tr>)}
+    {body.map((row) => <tr>{row.map((c) => <td><span lang="de" set:html={inline(c.de)} /><Tr t={c} /></td>)}</tr>)}
   </tbody>
 </table>

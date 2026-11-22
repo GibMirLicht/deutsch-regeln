@@ -2,7 +2,8 @@ import { expect, test } from '@playwright/test';
 
 test('article page: German text with Russian translation, bilingual tables, sentence analysis', async ({ page }) => {
   await page.goto('satz/satzglieder/');
-  await expect(page.getByRole('heading', { level: 1, name: 'Satzglieder — Члены предложения' })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1 })).toContainText('Satzglieder');
+  await expect(page.locator('h1 .tr[lang="ru"]')).toHaveText('Члены предложения');
 
   // A paragraph: German first, its Russian translation right below.
   const para = page.locator('.bi').first();
@@ -27,7 +28,7 @@ test('article page: German text with Russian translation, bilingual tables, sent
   expect(overflow).toBeLessThanOrEqual(0);
 
   // Links to the subsections use the base path.
-  await page.locator('ul.children').getByRole('link', { name: 'Prädikat — Сказуемое' }).click();
+  await page.locator('ul.children').getByRole('link', { name: 'Prädikat' }).click();
   await expect(page).toHaveURL(/\/deutsch-regeln\/satz\/satzglieder\/praedikat\/$/);
   await expect(page.locator('table.bitable tbody tr')).toHaveCount(8);
 });

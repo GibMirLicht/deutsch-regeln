@@ -4,9 +4,12 @@ import { REQUIRED_LANGS } from './i18n.ts';
 export const LEVELS = ['A1', 'A2', 'B1', 'B2', 'C1'] as const;
 export const STATUSES = ['unreviewed', 'reviewed'] as const;
 
-const translationSchema = z
-  .object(Object.fromEntries(REQUIRED_LANGS.map((l) => [l, z.string().trim().min(1)])))
-  .catchall(z.string().trim().min(1));
+const text = z.string().trim().min(1);
+/** A translation map: the languages in REQUIRED_LANGS plus any further ones (e.g. `en` later). */
+const translationSchema = z.object({ de: text, ru: text }).catchall(text);
+// Keep the schema in step with REQUIRED_LANGS (a new required language needs a key above).
+const _sameLangs: (typeof REQUIRED_LANGS)[number] extends keyof z.infer<typeof translationSchema> ? true : never = true;
+void _sameLangs;
 
 /**
  * Fields added to Starlight's frontmatter. Rule articles (the default `kind`) must set all of them;
@@ -28,7 +31,8 @@ type Data = Record<string, unknown>;
 
 /**
  * Article frontmatter carries `title: { de, ru }`. Starlight needs a string title, so the map moves to
- * `titles` and `title` becomes "de — ru"; `order` also drives Starlight's sidebar order.
+ * `titles` and `title` becomes the German title (page <title>, search results); the page heading and the
+ * tree show the translation separately, so it can be hidden. `order` also drives Starlight's sidebar order.
  */
 export function normalizeFrontmatter(input: unknown): unknown {
   if (typeof input !== 'object' || input === null) return input;
@@ -36,7 +40,7 @@ export function normalizeFrontmatter(input: unknown): unknown {
   if (typeof data.title === 'object' && data.title !== null) {
     const titles = data.title as Record<string, unknown>;
     data.titles = titles;
-    data.title = [titles.de, titles.ru].filter((t) => typeof t === 'string' && t.trim()).join(' — ');
+    data.title = typeof titles.de === 'string' ? titles.de : '';
   }
   if (typeof data.order === 'number' && data.sidebar === undefined) data.sidebar = { order: data.order };
   return data;

@@ -1,4 +1,7 @@
-/* Translations: same block or cell as the German, smaller and in italics. */
+/* Translations: same block or cell as the German, smaller and in italics; the header toggle hides them all. */
+html[data-tr='hidden'] .tr {
+  display: none !important;
+}
 .tr {
   font-size: 0.85em;
   font-style: italic;
@@ -6,6 +9,15 @@
 }
 p.tr {
   margin-top: 0.15rem;
+}
+.bitable .tr {
+  display: block;
+}
+h2 > .tr,
+h3 > .tr {
+  display: block;
+  font-size: 0.6em;
+  font-weight: 400;
 }
 .bi {
   margin-top: 1rem;

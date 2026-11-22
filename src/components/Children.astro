@@ -1,6 +1,7 @@
 ---
 /** Lists the direct children of the current article in tree order (stand-in until the tree view, PLAN stage 4). */
 import { getCollection } from 'astro:content';
+import Tr from './Tr.astro';
 
 const current = Astro.locals.starlightRoute.entry.id;
 const prefix = current === '' ? '' : `${current}/`;
@@ -10,5 +11,5 @@ const children = (await getCollection('docs'))
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 <ul class="children">
-  {children.map((e) => <li><a href={`${base}/${e.id}/`}>{e.data.title}</a></li>)}
+  {children.map((e) => <li><a href={`${base}/${e.id}/`}><span lang="de">{e.data.titles?.de ?? e.data.title}</span></a>{e.data.titles && <> <Tr t={e.data.titles} /></>}</li>)}
 </ul>

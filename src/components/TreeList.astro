@@ -1,0 +1,55 @@
+---
+/** One level of the rule tree in the sidebar; recurses into open or closed sublists. */
+import Tr from './Tr.astro';
+import type { TreeNode } from '../lib/tree.ts';
+
+interface Props {
+  nodes: TreeNode[];
+  current: string;
+  open: string[];
+  base: string;
+}
+const { nodes, current, open, base } = Astro.props;
+---
+<ul class="tree">
+  {
+    nodes.map((node) => {
+      const isOpen = open.includes(node.id);
+      const listId = `tree-${node.id.replace(/[^a-z0-9]+/gi, '-')}`;
+      return (
+        <li data-tree-id={node.id}>
+          <div class="tree-row">
+            {node.children.length > 0 ? (
+              <button
+                class="tree-toggle"
+                type="button"
+                aria-expanded={isOpen ? 'true' : 'false'}
+                aria-controls={listId}
+                aria-label={`${isOpen ? 'Свернуть' : 'Развернуть'}: ${node.titles.de}`}
+                data-tree-toggle
+              >
+                <svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14">
+                  <path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2" />
+                </svg>
+              </button>
+            ) : (
+              <span class="tree-spacer" />
+            )}
+            <a href={`${base}/${node.id}/`} aria-current={node.id === current ? 'page' : undefined}>
+              <span class="tree-number">{node.number}</span>
+              <span class="tree-label">
+                <span lang="de">{node.titles.de}</span>
+                <Tr t={node.titles} />
+              </span>
+            </a>
+          </div>
+          {node.children.length > 0 && (
+            <div id={listId} hidden={!isOpen}>
+              <Astro.self nodes={node.children} current={current} open={open} base={base} />
+            </div>
+          )}
+        </li>
+      );
+    })
+  }
+</ul>
