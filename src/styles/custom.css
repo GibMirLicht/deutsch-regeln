@@ -1,4 +1,70 @@
-/* Translations: same block or cell as the German, smaller and in italics; the header toggle hides them all. */
+/* ---------- Page and cards ---------- */
+
+/*
+ * Light grey page; every content block (paragraph, example line, table, examples, subsection list) is a
+ * white card with a light blue border, a soft shadow and slightly rounded corners (owner, 2026-11-22).
+ */
+:root {
+  --dr-card-bg: #ffffff;
+  --dr-card-border: #bfdcf7;
+  --dr-card-shadow: 0 1px 2px rgb(16 24 40 / 0.06), 0 2px 6px rgb(16 24 40 / 0.06);
+  --dr-card-radius: 0.5rem;
+  --dr-rule: #e3e8ef;
+}
+:root[data-theme='light'] {
+  --sl-color-bg: #f1f3f6;
+}
+:root[data-theme='dark'] {
+  --dr-card-bg: #1d2027;
+  --dr-card-border: #2c5480;
+  --dr-card-shadow: 0 1px 3px rgb(0 0 0 / 0.45);
+  --dr-rule: #2e323b;
+}
+
+.bi,
+blockquote.ex,
+.sl-markdown-content table.bitable,
+.analysis,
+ul.children {
+  background: var(--dr-card-bg);
+  border: 1px solid var(--dr-card-border);
+  border-radius: var(--dr-card-radius);
+  box-shadow: var(--dr-card-shadow);
+}
+
+.sl-markdown-content .bi,
+.sl-markdown-content blockquote.ex {
+  padding: 0.6rem 0.9rem;
+}
+.bi > p,
+blockquote.ex > p {
+  margin: 0;
+}
+
+/* Tables: the card holds the table; rows keep thin separators, the last one none. */
+.sl-markdown-content table.bitable {
+  width: fit-content;
+  max-width: 100%;
+}
+.sl-markdown-content table.bitable :is(th, td) {
+  padding: 0.45rem 0.9rem;
+  border-bottom: 1px solid var(--dr-rule);
+}
+.sl-markdown-content table.bitable tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+ul.children {
+  list-style: none;
+  padding: 0.5rem 0.9rem;
+}
+ul.children li + li {
+  margin-top: 0.25rem;
+}
+
+/* ---------- Translations ---------- */
+
+/* Same block or cell as the German, smaller and in italics; the header toggle hides them all. */
 html[data-tr='hidden'] .tr {
   display: none !important;
 }
@@ -8,7 +74,7 @@ html[data-tr='hidden'] .tr {
   color: var(--sl-color-gray-3);
 }
 p.tr {
-  margin-top: 0.15rem;
+  margin-top: 0.1rem;
 }
 .bitable .tr {
   display: block;
@@ -19,37 +85,32 @@ h3 > .tr {
   font-size: 0.6em;
   font-weight: 400;
 }
-.bi {
-  margin-top: 1rem;
-}
-.bi > p.de {
-  margin-bottom: 0;
-}
-blockquote.ex > p {
-  margin: 0;
-}
+
+/* ---------- Sentence analysis ---------- */
+
 /*
- * Sentence analysis: the sentence reads as one line of normal text, with about one space between parts.
- * Each part has a small label (DE, RU) centred above it and a thin line under it showing its extent.
- * Labels wrap within a narrow width, so a short word ("ist") does not get a wide gap around it.
+ * The sentence reads as one line of normal text. Each part has a small label (DE, RU) centred above it.
+ * One continuous line runs under the sentence: the parts touch, the space between words is padding
+ * inside each part. Labels wrap within a narrow width, so short words keep normal spacing.
  */
 .analysis {
-  border-top: 1px solid var(--sl-color-gray-5);
+  padding: 0 0.9rem;
 }
 .analysis-row {
-  padding: 1rem 0 0.9rem;
-  border-bottom: 1px solid var(--sl-color-gray-5);
+  padding: 0.6rem 0 0.5rem;
   text-align: center;
+}
+.analysis-row + .analysis-row {
+  border-top: 1px solid var(--dr-rule);
 }
 .analysis .parts {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-end;
-  column-gap: 0.55em;
-  row-gap: 0.9rem;
+  row-gap: 0.5rem;
   margin: 0;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
 }
 .analysis .part-cell {
   display: flex;
@@ -61,22 +122,44 @@ blockquote.ex > p {
 .analysis .part-cell .tr {
   display: block;
   max-width: 6rem;
-  font-size: 0.66rem;
-  line-height: 1.25;
+  padding: 0 0.15rem;
+  font-size: 0.64rem;
+  line-height: 1.2;
 }
 .analysis .part-cell .role {
   color: var(--sl-color-gray-2);
 }
 .analysis .part {
-  margin-top: 0.3rem;
-  padding: 0 0.1em 0.1rem;
+  align-self: stretch;
+  margin-top: 0.15rem;
+  padding: 0 0.27em 0.05rem;
   border-bottom: 2px solid var(--sl-color-gray-4);
   font-weight: 500;
   white-space: nowrap;
 }
 .analysis .translation {
-  margin-top: 0.6rem;
+  margin-top: 0.35rem;
 }
 .analysis .translation p {
   margin: 0;
+}
+
+/* ---------- Spacing ---------- */
+
+/* Tighter vertical rhythm between cards and after headings (owner: less empty space). */
+.sl-markdown-content {
+  --sl-content-gap-y: 0.6rem;
+}
+.sl-markdown-content :not(h1, h2, h3, h4, h5, h6) + :is(h2, h3, .sl-heading-wrapper) {
+  margin-top: 1.4rem;
+}
+/* Heading anchor icons add a stray line under two-line (DE + RU) headings and are not needed here. */
+.sl-markdown-content .sl-anchor-link {
+  display: none;
+}
+/* Starlight makes the heading inline (for the anchor icon); with the translation on its own line that
+   leaves an empty line below it, so headings are blocks here. */
+.sl-markdown-content .sl-heading-wrapper > :is(h2, h3) {
+  display: block;
+  padding-inline-end: 0;
 }
