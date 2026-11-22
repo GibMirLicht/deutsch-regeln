@@ -32,3 +32,11 @@ test('article page: German text with Russian translation, bilingual tables, sent
   await expect(page).toHaveURL(/\/deutsch-regeln\/satz\/satzglieder\/praedikat\/$/);
   await expect(page.locator('table.bitable tbody tr')).toHaveCount(8);
 });
+
+test('tables fit the screen without sideways scrolling', async ({ page }) => {
+  await page.goto('satz/satzglieder/');
+  for (const table of await page.locator('table.bitable').all()) {
+    const overflow = await table.evaluate((t) => t.scrollWidth - t.clientWidth);
+    expect(overflow).toBeLessThanOrEqual(1);
+  }
+});

@@ -163,3 +163,16 @@ h3 > .tr {
   display: block;
   padding-inline-end: 0;
 }
+/* Phones: tables fit the screen instead of scrolling sideways; long German words hyphenate. */
+@media (max-width: 50rem) {
+  .sl-markdown-content table.bitable {
+    display: table;
+    width: 100%;
+    table-layout: auto;
+  }
+  .sl-markdown-content table.bitable :is(th, td) {
+    padding: 0.4rem 0.5rem;
+    hyphens: auto;
+    overflow-wrap: break-word;
+  }
+}
