@@ -74,3 +74,68 @@ Ein Attribut beschreibt ein Nomen näher. Es steht im selben Satzglied wie das N
 | [Die Buchhaltung] | [schickt] | [Ihnen] | [die Rechnung] | [morgen] | [per E-Mail]. |
 
 *Бухгалтерия завтра пришлёт вам счёт по электронной почте.*
+
+## 1.1.1 Subjekt — Подлежащее · A1
+
+Approved 2026-11-22 (reviewed in the Claude Doc "1.1.1 Subjekt und Prädikat"; the owner split it into 1.1.1 and 1.1.2).
+
+Das Subjekt steht im Nominativ und antwortet auf die Frage „Wer?“ oder „Was?“.
+*Подлежащее стоит в именительном падеже и отвечает на вопрос «Кто?» или «Что?».*
+
+| Form<br>*Форма* | Beispiel<br>*Пример* |
+|---|---|
+| Nomen<br>*Существительное* | **Der Server** ist nicht erreichbar.<br>***Сервер** недоступен.* |
+| Pronomen<br>*Местоимение* | **Er** ist nicht erreichbar.<br>***Он** недоступен.* |
+| Nebensatz<br>*Придаточное предложение* | **Dass der Server ausfällt,** ist selten.<br>***То, что сервер отказывает,** бывает редко.* |
+
+Ein Subjekt ist fast immer Pflicht. Ohne handelnde Person steht *es*: Es regnet. Es gibt ein Problem. Ohne Subjekt stehen nur der Imperativ (Komm bitte!) und manche Passivsätze (Hier wird nicht geraucht.).
+*Подлежащее обязательно почти всегда. Если действующего лица нет, ставится es: «Идёт дождь. Есть проблема». Без подлежащего бывают только повелительное наклонение («Приходи, пожалуйста!») и некоторые пассивные предложения («Здесь не курят»).*
+
+Examples: the shared examples table below (end of 1.1.2) is shown on both pages.
+
+## 1.1.2 Prädikat — Сказуемое · A1
+
+Approved 2026-11-22.
+
+Das Prädikat besteht aus dem konjugierten Verb und gegebenenfalls weiteren Verbteilen.
+*Сказуемое состоит из спрягаемого глагола и его частей.*
+
+| Aufbau<br>*Строение* | Beispiel<br>*Пример* |
+|---|---|
+| konjugiertes Verb<br>*спрягаемый глагол* | Sie **arbeitet**.<br>*Она **работает**.* |
+| Verb + Präfix<br>*глагол + отделяемая приставка* | Sie **ruft** den Kunden **an**.<br>*Она **звонит** клиенту.* |
+| haben / sein + Partizip II<br>*haben / sein + причастие II (прошедшее время)* | Sie **hat** den Kunden **angerufen**.<br>*Она **позвонила** клиенту.* |
+| Modalverb + Infinitiv<br>*модальный глагол + инфинитив* | Sie **muss** den Kunden **anrufen**.<br>*Она **должна позвонить** клиенту.* |
+| werden + Infinitiv<br>*werden + инфинитив (будущее время)* | Sie **wird** den Kunden **anrufen**.<br>*Она **позвонит** клиенту.* |
+| werden + Partizip II<br>*werden + причастие II (пассив)* | Der Kunde **wird angerufen**.<br>*Клиенту **звонят**.* |
+| sein / werden / bleiben + Nomen oder Adjektiv<br>*sein / werden / bleiben + существительное или прилагательное (именное сказуемое)* | Sie **ist Projektleiterin**.<br>*Она **руководитель проекта**.* |
+| mehrere Verbteile<br>*несколько частей сразу* | Sie **hat** den Kunden **anrufen müssen**.<br>*Ей **пришлось позвонить** клиенту.* |
+
+Das konjugierte Verb stimmt in Person und Zahl mit dem Subjekt überein: ich arbeite, du arbeitest, die Kollegen arbeiten.
+*Спрягаемый глагол согласуется с подлежащим в лице и числе: я работаю, ты работаешь, коллеги работают.*
+Owner note: add a link to the cases (Kasus) article once it exists.
+
+Ein konjugiertes Verb ist in jedem Satz Pflicht, auch wo das Russische keins hat: Er **ist** Arzt.
+*Спрягаемый глагол обязателен в каждом предложении, даже там, где в русском его нет: Он врач.*
+
+### Beispiele — Примеры
+
+One table, no tier labels (owner, 2026-11-22). Each part carries its label (DE, RU) above it; the translation spans the row below.
+
+| Subjekt · подлежащее | Prädikat · сказуемое | Adverbiale (Ort) · обстоятельство места | | |
+|---|---|---|---|---|
+| **Mein Bruder** | **wohnt** | **in Berlin.** | | |
+
+*Мой брат живёт в Берлине.*
+
+| Adverbiale (Zeit) · обстоятельство времени | Prädikat · сказуемое | Adverbiale (Ort) · обстоятельство места | Subjekt · подлежащее | Prädikat · сказуемое |
+|---|---|---|---|---|
+| **Gestern** | **ist** | **im Zentrum** | **ein Unfall** | **passiert.** |
+
+*Вчера в центре произошла авария. Подлежащее стоит после глагола, сказуемое разорвано на две части.*
+
+| Subjekt · подлежащее | Prädikat · сказуемое | Akkusativobjekt · дополнение в вин. п. | Adverbiale (Zeit) · обстоятельство времени | Prädikat · сказуемое |
+|---|---|---|---|---|
+| **Die Kollegen aus dem Vertrieb** | **haben** | **die Präsentation** | **schon** | **vorbereitet.** |
+
+*Коллеги из отдела продаж уже подготовили презентацию. «aus dem Vertrieb» — определение внутри подлежащего.*
