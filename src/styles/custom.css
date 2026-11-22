@@ -28,32 +28,54 @@ h3 > .tr {
 blockquote.ex > p {
   margin: 0;
 }
+/*
+ * Sentence analysis: the sentence reads as one line of normal text, with about one space between parts.
+ * Each part has a small label (DE, RU) centred above it and a thin line under it showing its extent.
+ * Labels wrap within a narrow width, so a short word ("ist") does not get a wide gap around it.
+ */
 .analysis {
   border-top: 1px solid var(--sl-color-gray-5);
 }
 .analysis-row {
-  padding: 0.75rem 0;
+  padding: 1rem 0 0.9rem;
   border-bottom: 1px solid var(--sl-color-gray-5);
+  text-align: center;
 }
 .analysis .parts {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem 1.5rem;
+  justify-content: center;
+  align-items: flex-end;
+  column-gap: 0.55em;
+  row-gap: 0.9rem;
   margin: 0;
+  font-size: 1.15rem;
 }
 .analysis .part-cell {
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin: 0;
 }
-.analysis .role {
-  font-size: 0.85em;
+.analysis .part-cell .role,
+.analysis .part-cell .tr {
+  display: block;
+  max-width: 6rem;
+  font-size: 0.66rem;
+  line-height: 1.25;
+}
+.analysis .part-cell .role {
+  color: var(--sl-color-gray-2);
 }
 .analysis .part {
-  margin-top: 0.25rem;
+  margin-top: 0.3rem;
+  padding: 0 0.1em 0.1rem;
+  border-bottom: 2px solid var(--sl-color-gray-4);
+  font-weight: 500;
+  white-space: nowrap;
 }
 .analysis .translation {
-  margin-top: 0.5rem;
+  margin-top: 0.6rem;
 }
 .analysis .translation p {
   margin: 0;

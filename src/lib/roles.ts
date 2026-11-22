@@ -4,8 +4,8 @@ import type { Translation } from './i18n.ts';
 export const ROLES = {
   subjekt: { de: 'Subjekt', ru: 'подлежащее' },
   praedikat: { de: 'Prädikat', ru: 'сказуемое' },
-  akkusativobjekt: { de: 'Akkusativobjekt', ru: 'дополнение в вин. п.' },
-  dativobjekt: { de: 'Dativobjekt', ru: 'дополнение в дат. п.' },
+  akkusativobjekt: { de: 'Akkusativobjekt', ru: 'дополнение в вин.\u00a0п.' },
+  dativobjekt: { de: 'Dativobjekt', ru: 'дополнение в дат.\u00a0п.' },
   praepositionalobjekt: { de: 'Präpositionalobjekt', ru: 'предложное дополнение' },
   'adverbiale-zeit': { de: 'Adverbiale (Zeit)', ru: 'обстоятельство времени' },
   'adverbiale-ort': { de: 'Adverbiale (Ort)', ru: 'обстоятельство места' },
