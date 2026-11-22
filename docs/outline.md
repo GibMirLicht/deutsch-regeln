@@ -26,10 +26,11 @@ Format: **number** German title — *Russian title* · level. Parentheses give t
 
 - **1** Satz — *Предложение* · A1
   - **1.1** Satzglieder — *Члены предложения* · A1
-    - **1.1.1** Subjekt und Prädikat — *Подлежащее и сказуемое* · A1
-    - **1.1.2** Objekte — *Дополнения* · A1
-    - **1.1.3** Adverbiale Bestimmungen — *Обстоятельства* · A2
-    - **1.1.4** Attribute — *Определения* · B1
+    - **1.1.1** Subjekt — *Подлежащее* · A1
+    - **1.1.2** Prädikat — *Сказуемое* · A1
+    - **1.1.3** Objekte — *Дополнения* · A1
+    - **1.1.4** Adverbiale Bestimmungen — *Обстоятельства* · A2
+    - **1.1.5** Attribute — *Определения* · B1
   - **1.2** Satzarten — *Типы предложений* · A1
     - **1.2.1** Aussagesatz — *Повествовательное предложение* · A1
     - **1.2.2** W-Fragen — *Вопросы с вопросительным словом* · A1
@@ -242,11 +243,11 @@ Format: **number** German title — *Russian title* · level. Parentheses give t
 
 ## Counts
 
-215 nodes (articles) under `1 Satz`, at most 5 levels deep; 16 more in the deferred sections.
+216 nodes (articles) under `1 Satz`, at most 5 levels deep; 16 more in the deferred sections.
 
 | Level | Nodes |
 |---|---|
-| A1 | 71 |
+| A1 | 72 |
 | A2 | 56 |
 | B1 | 53 |
 | B2 | 28 |
@@ -259,6 +260,7 @@ Format: **number** German title — *Russian title* · level. Parentheses give t
 | 2026-11-19 | Top level | Owner: level 1 is the sentence, level 2 what it consists of (incl. words), level 3 the kinds of words. |
 | 2026-11-19 | Sections 2 Text and 3 Übersichten | Owner: deferred for now (moved to "Deferred" below). |
 | 2026-11-19 | Tree under `1 Satz` | Owner: approved; content is written top-down along this list. Each topic is covered briefly but fully; the text is approved by the owner before it is coded. |
+| 2026-11-22 | 1.1.1 Subjekt und Prädikat | Owner: split into 1.1.1 Subjekt and 1.1.2 Prädikat. |
 | 2026-11-19 | Zeit, Modus, Passiv at level 2; Rechtschreibung and Zeichensetzung kept; C1 as is | Kept as drafted (no objection from the owner); can change later. |
 
 ## Deferred
