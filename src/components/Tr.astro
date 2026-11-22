@@ -1,0 +1,12 @@
+---
+/** The translation lines of a map (every language but German), small and italic. */
+import { translationLangs, type Translation } from '../lib/i18n.ts';
+import { inline } from '../lib/inline.ts';
+
+interface Props {
+  t: Translation;
+  as?: 'p' | 'span';
+}
+const { t, as: Tag = 'span' } = Astro.props;
+---
+{translationLangs(t).filter((lang) => t[lang]).map((lang) => <Tag class="tr" lang={lang} set:html={inline(t[lang]!)} />)}

@@ -1,9 +1,11 @@
 import { defineCollection } from 'astro:content';
 import { docsLoader } from '@astrojs/starlight/loaders';
 import { docsSchema } from '@astrojs/starlight/schema';
+import { articleFields, articleSchema } from './lib/article.ts';
 
-// Stage 1 uses Starlight's default schema. The strict article schema
-// (title {de, ru}, level, tags, weight, status, tree order) arrives in PLAN stage 3.
 export const collections = {
-  docs: defineCollection({ loader: docsLoader(), schema: docsSchema() }),
+  docs: defineCollection({
+    loader: docsLoader(),
+    schema: (context) => articleSchema(docsSchema({ extend: articleFields })(context)),
+  }),
 };

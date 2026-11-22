@@ -20,6 +20,7 @@ export default defineConfig({
         // The site is public by link but must not be indexed.
         { tag: 'meta', attrs: { name: 'robots', content: 'noindex, nofollow' } },
       ],
+      customCss: ['./src/styles/custom.css'],
       social: [
         { icon: 'github', label: 'GitHub', href: 'https://github.com/GibMirLicht/deutsch-regeln' },
       ],

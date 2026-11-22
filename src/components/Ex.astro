@@ -1,0 +1,16 @@
+---
+/** A standalone example line (e.g. a transformation "A → B") with its translations. */
+import Tr from './Tr.astro';
+import { assertTranslation } from '../lib/i18n.ts';
+import { inline } from '../lib/inline.ts';
+
+interface Props {
+  t: unknown;
+}
+const { t } = Astro.props;
+assertTranslation(t, `<Ex> in ${Astro.url.pathname}`);
+---
+<blockquote class="ex">
+  <p class="de" lang="de" set:html={inline(t.de)} />
+  <Tr t={t} as="p" />
+</blockquote>
