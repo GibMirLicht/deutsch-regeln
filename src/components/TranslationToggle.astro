@@ -1,12 +1,16 @@
 ---
-/** Header button that shows or hides every translation on the site; remembered per device. */
+/**
+ * Shows or hides every translation on the site: the header button or the R key (any keyboard layout).
+ * Remembered per device. Translations grow in smoothly and are typed in letter by letter.
+ */
 ---
-<button class="tr-toggle" type="button" aria-pressed="true" title="Показать или скрыть перевод">
-  <span class="label-long">Перевод</span><span class="label-short">RU</span>
+<button class="tr-toggle" type="button" aria-pressed="true" aria-keyshortcuts="R" title="Показать или скрыть перевод (клавиша R)">
+  <span class="label-long">Перевод <kbd>R</kbd></span><span class="label-short">RU</span>
 </button>
 
 <script>
   import { SETTINGS_KEY, parseSettings } from '../lib/settings.ts';
+  import { concealTranslations, revealTranslations } from '../lib/reveal.ts';
 
   const root = document.documentElement;
   const read = () => {
@@ -16,24 +20,44 @@
       return parseSettings(null);
     }
   };
-  const apply = (show: boolean) => {
-    if (show) delete root.dataset.tr;
-    else root.dataset.tr = 'hidden';
+  const setPressed = (show: boolean) =>
     document.querySelectorAll('.tr-toggle').forEach((b) => b.setAttribute('aria-pressed', String(show)));
+
+  setPressed(read().global.translation);
+
+  let busy = false;
+  const toggle = () => {
+    if (busy) return;
+    const settings = read();
+    const show = !settings.global.translation;
+    settings.global.translation = show;
+    try {
+      localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+    } catch {
+      /* storage unavailable: the toggle still works on this page */
+    }
+    setPressed(show);
+    if (show) {
+      delete root.dataset.tr;
+      revealTranslations();
+    } else {
+      busy = true;
+      concealTranslations(() => {
+        root.dataset.tr = 'hidden';
+        busy = false;
+      });
+    }
   };
-  apply(read().global.translation);
-  document.querySelectorAll('.tr-toggle').forEach((button) =>
-    button.addEventListener('click', () => {
-      const settings = read();
-      settings.global.translation = !settings.global.translation;
-      try {
-        localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
-      } catch {
-        /* storage unavailable: the toggle still works for this page */
-      }
-      apply(settings.global.translation);
-    }),
-  );
+
+  document.querySelectorAll('.tr-toggle').forEach((button) => button.addEventListener('click', toggle));
+
+  document.addEventListener('keydown', (event) => {
+    if (event.code !== 'KeyR' || event.ctrlKey || event.metaKey || event.altKey || event.repeat) return;
+    const target = event.target as HTMLElement | null;
+    if (target?.closest('input, textarea, select, [contenteditable=""], [contenteditable="true"], dialog[open]')) return;
+    event.preventDefault();
+    toggle();
+  });
 </script>
 
 <style>
@@ -58,6 +82,14 @@
     .label-short {
       display: none;
     }
+  }
+  kbd {
+    margin-inline-start: 0.25rem;
+    padding: 0 0.3rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.25rem;
+    font-family: inherit;
+    font-size: 0.75em;
   }
   .tr-toggle[aria-pressed='true'] {
     background: var(--sl-color-gray-6);

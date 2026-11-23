@@ -5,6 +5,8 @@
  * white card with a light blue border, a soft shadow and slightly rounded corners (owner, 2026-11-22).
  */
 :root {
+  --dr-accent: #0f8f86;
+  --dr-separator: #9fd6d1;
   --dr-card-bg: #ffffff;
   --dr-card-border: #bfdcf7;
   --dr-card-shadow: 0 1px 2px rgb(16 24 40 / 0.06), 0 2px 6px rgb(16 24 40 / 0.06);
@@ -15,6 +17,8 @@
   --sl-color-bg: #f1f3f6;
 }
 :root[data-theme='dark'] {
+  --dr-accent: #3cc7bb;
+  --dr-separator: #2a6f69;
   --dr-card-bg: #1d2027;
   --dr-card-border: #2c5480;
   --dr-card-shadow: 0 1px 3px rgb(0 0 0 / 0.45);
@@ -23,6 +27,7 @@
 
 .bi,
 blockquote.ex,
+.rule,
 .sl-markdown-content table.bitable,
 .analysis,
 ul.children {
@@ -33,8 +38,26 @@ ul.children {
 }
 
 .sl-markdown-content .bi,
-.sl-markdown-content blockquote.ex {
+.sl-markdown-content blockquote.ex,
+.sl-markdown-content .rule {
   padding: 0.6rem 0.9rem;
+}
+/* Inside a rule card, its paragraphs and examples are plain parts of the one card. */
+.sl-markdown-content .rule > :is(.bi, blockquote.ex) {
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.sl-markdown-content .rule > * + * {
+  margin-top: 0.5rem;
+}
+/* An example inside a rule: set off by a thin accent line on the left. */
+.sl-markdown-content .rule > blockquote.ex {
+  padding-inline-start: 0.75rem;
+  border-inline-start: 3px solid var(--dr-card-border);
 }
 .bi > p,
 blockquote.ex > p {
@@ -43,8 +66,8 @@ blockquote.ex > p {
 
 /* Tables: the card holds the table; rows keep thin separators, the last one none. */
 .sl-markdown-content table.bitable {
-  width: fit-content;
-  max-width: 100%;
+  display: table;
+  width: 100%;
 }
 .sl-markdown-content table.bitable :is(th, td) {
   padding: 0.45rem 0.9rem;
@@ -89,9 +112,9 @@ h3 > .tr {
 /* ---------- Sentence analysis ---------- */
 
 /*
- * The sentence reads as one line of normal text. Each part has a small label (DE, RU) centred above it.
- * One continuous line runs under the sentence: the parts touch, the space between words is padding
- * inside each part. Labels wrap within a narrow width, so short words keep normal spacing.
+ * The sentence reads as one line of normal text. Each part has a small label (DE, RU) centred above it,
+ * the German label underlined; thin vertical lines separate the parts (owner, 2026-11-23).
+ * Labels wrap within a narrow width, so short words keep normal spacing.
  */
 .analysis {
   padding: 0 0.9rem;
@@ -107,7 +130,7 @@ h3 > .tr {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: flex-end;
+  align-items: stretch;
   row-gap: 0.5rem;
   margin: 0;
   font-size: 1.1rem;
@@ -115,25 +138,31 @@ h3 > .tr {
 .analysis .part-cell {
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   align-items: center;
   margin: 0;
+  padding: 0 0.3em;
+  border-inline-start: 1.5px solid var(--dr-separator);
+}
+.analysis .part-cell:last-child {
+  border-inline-end: 1.5px solid var(--dr-separator);
 }
 .analysis .part-cell .role,
 .analysis .part-cell .tr {
   display: block;
   max-width: 6rem;
-  padding: 0 0.15rem;
   font-size: 0.64rem;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 .analysis .part-cell .role {
   color: var(--sl-color-gray-2);
+  text-decoration: underline;
+  text-decoration-color: var(--dr-accent);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 2px;
 }
 .analysis .part {
-  align-self: stretch;
   margin-top: 0.15rem;
-  padding: 0 0.27em 0.05rem;
-  border-bottom: 2px solid var(--sl-color-gray-4);
   font-weight: 500;
   white-space: nowrap;
 }

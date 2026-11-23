@@ -46,3 +46,30 @@ test.describe('rule tree and translation toggle', () => {
     await expect(page.locator('main .bi p.tr').first()).toBeVisible();
   });
 });
+
+test('R key toggles translations; typing in search does not', async ({ page, isMobile }) => {
+  test.skip(isMobile, 'phones have no keyboard shortcut');
+  await page.goto('satz/satzglieder/praedikat/');
+  const translation = page.locator('main .bi p.tr').first();
+  await expect(translation).toBeVisible();
+  await page.keyboard.press('r');
+  await expect(translation).toBeHidden();
+  await page.keyboard.press('r');
+  await expect(translation).toBeVisible();
+  // Typed in letter by letter, then complete.
+  await expect(translation).toHaveText('Сказуемое состоит из спрягаемого глагола и его частей.');
+
+  // In the search field, R is just a letter.
+  await page.keyboard.press('Control+k');
+  await page.locator('dialog[open] input').first().waitFor();
+  await page.keyboard.type('r');
+  await expect(page.locator('dialog[open] input').first()).toHaveValue('r');
+  await page.keyboard.press('Escape');
+  await expect(translation).toBeVisible();
+});
+
+test('no previous/next links under articles', async ({ page }) => {
+  await page.goto('satz/satzglieder/subjekt/');
+  await expect(page.getByText('Предыдущая')).toHaveCount(0);
+  await expect(page.getByText('Следующая')).toHaveCount(0);
+});

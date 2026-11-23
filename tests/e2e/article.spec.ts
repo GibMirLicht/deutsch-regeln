@@ -40,3 +40,15 @@ test('tables fit the screen without sideways scrolling', async ({ page }) => {
     expect(overflow).toBeLessThanOrEqual(1);
   }
 });
+
+test('all content cards have the same width; a rule and its example share one card', async ({ page }) => {
+  await page.goto('satz/satzglieder/');
+  const widths = await page
+    .locator('main .sl-markdown-content > :is(.bi, .rule, blockquote.ex, table.bitable, .analysis, ul.children)')
+    .evaluateAll((els) => els.map((e) => Math.round(e.getBoundingClientRect().width)));
+  expect(widths.length).toBeGreaterThan(5);
+  expect(new Set(widths).size).toBe(1);
+  const rule = page.locator('.rule').first();
+  await expect(rule.locator('.bi')).toContainText('Umstellprobe');
+  await expect(rule.locator('blockquote.ex')).toContainText('Am Montag beginnt');
+});
