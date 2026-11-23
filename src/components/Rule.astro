@@ -2,6 +2,33 @@
 /**
  * One card for one rule: its paragraphs and the example lines that illustrate it belong together,
  * so they are not split into separate cards (owner, 2026-11-23).
+ * Optional `title` ({ de, ru }) and `level` (A1–C2) head a card for a finer rule of the topic.
  */
+import Tr from './Tr.astro';
+import { assertTranslation } from '../lib/i18n.ts';
+import { LEVELS } from '../lib/article.ts';
+
+interface Props {
+  title?: unknown;
+  level?: string;
+}
+const { title, level } = Astro.props;
+const where = `<Rule> in ${Astro.url.pathname}`;
+if (title !== undefined) assertTranslation(title, `${where}, title`);
+if (level !== undefined && !(LEVELS as readonly string[]).some((l) => level.split('–').includes(l))) {
+  throw new Error(`${where}: unknown level "${level}"`);
+}
+const t = title as { de: string; ru: string } | undefined;
 ---
-<div class="rule"><slot /></div>
+<div class="rule">
+  {
+    t && (
+      <h3 class="rule-title">
+        <span lang="de">{t.de}</span>
+        {level && <span class="level">{level}</span>}
+        <Tr t={t} />
+      </h3>
+    )
+  }
+  <slot />
+</div>

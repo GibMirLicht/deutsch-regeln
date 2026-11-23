@@ -54,6 +54,31 @@ ul.children {
 .sl-markdown-content .rule > * + * {
   margin-top: 0.5rem;
 }
+/* A titled rule card: German title, level badge, translation below. */
+.sl-markdown-content .rule > h3.rule-title {
+  margin: 0 0 0.4rem;
+  font-size: var(--sl-text-lg);
+  line-height: 1.3;
+}
+.sl-markdown-content .rule > h3.rule-title > .tr {
+  display: block;
+  font-size: 0.8em;
+  font-weight: 400;
+}
+.rule-title .level {
+  display: inline-block;
+  margin-inline-start: 0.5rem;
+  padding: 0 0.4rem;
+  border: 1px solid var(--dr-card-border);
+  border-radius: 0.3rem;
+  font-size: 0.7em;
+  font-weight: 500;
+  color: var(--dr-accent);
+  vertical-align: middle;
+}
+.sl-markdown-content .rule > h3.rule-title + * {
+  margin-top: 0;
+}
 /* An example inside a rule: set off by a thin accent line on the left. */
 .sl-markdown-content .rule > blockquote.ex {
   padding-inline-start: 0.75rem;

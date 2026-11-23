@@ -141,3 +141,7 @@ One table, no tier labels (owner, 2026-11-22). Each part carries its label (DE, 
 | **Die Kollegen aus dem Vertrieb** | **haben** | **die Präsentation** | **schon** | **vorbereitet.** |
 
 *Коллеги из отдела продаж уже подготовили презентацию. «aus dem Vertrieb» — определение внутри подлежащего.*
+
+## 1.1.3 Objekte, 1.1.4 Adverbiale Bestimmungen, 1.1.5 Attribute
+
+Approved 2026-11-23 in the Claude Doc "1.1.3–1.1.5 Objekte, Adverbiale, Attribute" with the owner's notes applied directly while coding (owner asked to stop review rounds and code). Source of truth: `src/content/docs/satz/satzglieder/objekte.mdx`, `adverbiale.mdx`, `attribute.mdx`. The 1.1 Attribut section became a footnote to 1.1.5.

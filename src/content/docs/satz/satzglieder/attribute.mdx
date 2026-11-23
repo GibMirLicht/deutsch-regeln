@@ -1,0 +1,154 @@
+---
+title: { de: Attribute, ru: Определения }
+level: B1
+order: 5
+status: unreviewed
+tags: [Attribut, Attribute, определение, Apposition, приложение, Partizipialattribut, Genitivattribut, Relativsatz]
+---
+import P from '~/components/P.astro';
+import Ex from '~/components/Ex.astro';
+import Rule from '~/components/Rule.astro';
+import BiTable from '~/components/BiTable.astro';
+import Analysis from '~/components/Analysis.astro';
+
+<P t={{
+  de: 'Ein Attribut bestimmt ein Nomen näher. Es gehört zum Satzglied dieses Nomens und ist kein eigenes Satzglied. Es steht vor oder nach dem Nomen (der **neue** Kollege **aus Berlin**).',
+  ru: 'Определение уточняет существительное. Оно входит в тот же член предложения, что и существительное, и самостоятельным членом предложения не является. Стоит перед существительным или после него (**новый** коллега **из Берлина**).',
+}} />
+
+<BiTable
+  head={[{ de: 'Art', ru: 'Вид' }, { de: 'Stellung', ru: 'Место' }, { de: 'Beispiel', ru: 'Пример' }]}
+  rows={[
+    [{ de: 'Adjektiv', ru: 'прилагательное' }, { de: 'vor dem Nomen', ru: 'перед существительным' }, { de: 'der **neue** Kollege', ru: '**новый** коллега' }],
+    [{ de: 'Partizip', ru: 'причастие' }, { de: 'vor dem Nomen', ru: 'перед существительным' }, { de: 'die **geöffnete** Datei', ru: '**открытый** файл' }],
+    [{ de: 'Name im Genitiv', ru: 'имя в родительном падеже' }, { de: 'vor dem Nomen', ru: 'перед существительным' }, { de: '**Peters** Laptop', ru: 'ноутбук **Петера**' }],
+    [{ de: 'Nomen im Genitiv', ru: 'существительное в родительном падеже' }, { de: 'nach dem Nomen', ru: 'после существительного' }, { de: 'das Büro **des Chefs**', ru: 'кабинет **начальника**' }],
+    [{ de: 'Präposition + Nomen', ru: 'предлог + существительное' }, { de: 'nach dem Nomen', ru: 'после существительного' }, { de: 'der Termin **am Montag**', ru: 'встреча **в понедельник**' }],
+    [{ de: 'Adverb', ru: 'наречие' }, { de: 'nach dem Nomen', ru: 'после существительного' }, { de: 'das Treffen **gestern**', ru: '**вчерашняя** встреча' }],
+    [{ de: 'Relativsatz', ru: 'относительное придаточное' }, { de: 'nach dem Nomen', ru: 'после существительного' }, { de: 'der Bericht, **den ich geschrieben habe**', ru: 'отчёт, **который я написал**' }],
+    [{ de: 'Apposition', ru: 'приложение' }, { de: 'nach dem Nomen, mit Kommas', ru: 'после существительного, в запятых' }, { de: 'Herr Lang, **unser neuer Kollege**, …', ru: 'господин Ланг, **наш новый коллега**, …' }],
+    [{ de: 'Infinitiv mit zu', ru: 'инфинитив с zu' }, { de: 'nach dem Nomen', ru: 'после существительного' }, { de: 'der Plan, **das Büro umzubauen**', ru: 'план **перестроить офис**' }],
+  ]}
+/>
+
+<P t={{
+  de: 'Ein Adjektiv oder Partizip vor dem Nomen bekommt eine Endung (der neue Kollege, ein neuer Kollege, neue Kollegen). Die Endungen: Kapitel „Adjektivdeklination“.',
+  ru: 'Прилагательное или причастие перед существительным получает окончание (der neue Kollege, ein neuer Kollege, neue Kollegen). Окончания — в разделе «Склонение прилагательных».',
+}} />
+
+<Rule title={{ de: 'Mehrere Attribute', ru: 'Несколько определений' }}>
+<P t={{
+  de: 'Ein Nomen kann mehrere Attribute haben. Alles zusammen bleibt ein Satzglied — das Satzglied, zu dem das Nomen gehört (hier das Subjekt).',
+  ru: 'У одного существительного может быть несколько определений. Всё вместе остаётся одним членом предложения — тем, к которому относится существительное (здесь — подлежащим).',
+}} />
+<Ex t={{
+  de: '**Das neue Büro des Chefs im dritten Stock** ist sehr hell.',
+  ru: '**Новый кабинет начальника на третьем этаже** очень светлый.',
+}} />
+</Rule>
+
+<Rule title={{ de: 'Inhaltssatz als Attribut', ru: 'Придаточное-определение, раскрывающее содержание' }} level="B2">
+<P t={{
+  de: 'Ein Attribut kann auch ein Nebensatz sein, der den Inhalt des Nomens nennt. Er steht nach Nomen wie Frage, Tatsache, Hoffnung, Angst, Idee u. a. und beginnt mit dass, ob oder einem Fragewort — nicht mit der, die, das wie ein Relativsatz.',
+  ru: 'Определением может быть и придаточное, которое раскрывает содержание существительного: какой именно вопрос, какой факт. Оно стоит после существительных вроде Frage (вопрос), Tatsache (факт), Hoffnung (надежда), Angst (страх), Idee (идея) и др. и начинается с dass, ob или вопросительного слова — а не с der, die, das, как относительное придаточное.',
+}} />
+<Ex t={{
+  de: 'Die Frage, **ob wir das schaffen**, ist noch offen. / Die Hoffnung, **dass alles klappt**, ist groß.',
+  ru: 'Вопрос, **справимся ли мы**, пока открыт. / Надежда на то, **что всё получится**, велика.',
+}} />
+<Ex t={{
+  de: 'Vergleich: Die Frage, **die er gestellt hat**, war schwierig. (Relativsatz: die = die Frage)',
+  ru: 'Сравните: Вопрос, **который он задал**, был трудным. (относительное придаточное)',
+}} />
+</Rule>
+
+<Rule title={{ de: 'Erweitertes Partizipialattribut', ru: 'Распространённое причастное определение' }} level="C1">
+<P t={{
+  de: 'Zwischen Artikel und Nomen steht ein Partizip mit eigenen Ergänzungen. Dieses Attribut ersetzt einen Relativsatz und ist typisch für Fach- und Amtstexte. Bau: Artikel + Ergänzungen + Partizip mit Endung + Nomen.',
+  ru: 'Между артиклем и существительным стоит причастие со своими зависимыми словами. Такое определение заменяет относительное придаточное и типично для деловых и официальных текстов. Строение: артикль + зависимые слова + причастие с окончанием + существительное. Переводится причастным оборотом или придаточным «который…».',
+}} />
+<Ex t={{
+  de: 'Partizip II — passiv oder abgeschlossen: die **gestern im Meeting besprochenen** Änderungen = die Änderungen, **die gestern im Meeting besprochen wurden**',
+  ru: 'Причастие II — страдательное или завершённое действие: **обсуждённые вчера на встрече** изменения = изменения, **которые обсудили вчера на встрече**',
+}} />
+<Ex t={{
+  de: 'Partizip I — aktiv und gleichzeitig: die **seit Jahren steigenden** Kosten = die Kosten, **die seit Jahren steigen**',
+  ru: 'Причастие I — действительное, одновременное действие: **растущие годами** расходы = расходы, **которые растут годами**',
+}} />
+<Ex t={{
+  de: 'zu + Partizip I — was getan werden muss oder kann (C2): die **bis Freitag zu prüfenden** Unterlagen = die Unterlagen, **die bis Freitag geprüft werden müssen**',
+  ru: 'zu + причастие I — то, что нужно или можно сделать (C2): документы, **которые нужно проверить до пятницы**',
+}} />
+<P t={{
+  de: 'Lesen: vom Artikel zum Nomen springen (die … Änderungen), dann die Mitte von hinten lesen: besprochenen ← im Meeting ← gestern.',
+  ru: 'Как читать: от артикля сразу перейти к существительному (die … Änderungen), затем читать середину с конца: besprochenen ← im Meeting ← gestern.',
+}} />
+</Rule>
+
+<Rule title={{ de: 'Apposition im selben Kasus', ru: 'Падеж приложения' }} level="C1">
+<P t={{
+  de: 'Eine Apposition ist ein Attribut aus einem Nomen, das ein anderes Nomen erklärt. Sie steht im selben Kasus wie dieses Nomen.',
+  ru: 'Приложение — определение-существительное, которое поясняет другое существительное. Оно стоит в том же падеже, что и это существительное.',
+}} />
+<Ex t={{
+  de: 'Ich spreche mit Herrn Lang, **unserem neuen Kollegen**. (Dativ — Dativ)',
+  ru: 'Я говорю с господином Лангом, **нашим новым коллегой**.',
+}} />
+</Rule>
+
+<Rule title={{ de: 'Datum als Apposition', ru: 'Дата как приложение' }} level="C1">
+<P t={{
+  de: 'Ein Datum nach am + Wochentag ist eine Apposition; Dativ und Akkusativ sind beide üblich.',
+  ru: 'Дата после am + день недели — это приложение; допустимы и дательный, и винительный падеж.',
+}} />
+<Ex t={{
+  de: 'am Montag, **dem 5. Mai** / am Montag, **den 5. Mai**',
+  ru: 'в понедельник, **5 мая**',
+}} />
+</Rule>
+
+<Rule title={{ de: 'von statt Genitivattribut', ru: 'von вместо определения в родительном падеже' }} level="B2">
+<P t={{
+  de: 'Statt eines Genitivattributs steht umgangssprachlich oft von + Dativ.',
+  ru: 'Вместо определения в родительном падеже в разговорной речи часто стоит von + дательный падеж.',
+}} />
+<Ex t={{
+  de: 'der Laptop **von meinem Kollegen** (= der Laptop meines Kollegen) / das Büro **von Peter** (= Peters Büro)',
+  ru: 'ноутбук **моего коллеги** / кабинет **Петера**',
+}} />
+</Rule>
+
+## Beispiele <span class="tr" lang="ru">Примеры</span>
+
+<Analysis examples={[
+  {
+    tier: 'basic',
+    parts: [
+      { role: 'subjekt', text: 'Wir' },
+      { role: 'praedikat', text: 'brauchen' },
+      { role: 'akkusativobjekt', text: 'einen größeren Raum.' },
+    ],
+    tr: { ru: 'Нам нужно помещение побольше.' },
+    note: { ru: '«größeren» — определение внутри дополнения.' },
+  },
+  {
+    tier: 'advanced',
+    parts: [
+      { role: 'subjekt', text: 'Die neue Kollegin aus Berlin' },
+      { role: 'praedikat', text: 'beginnt' },
+      { role: 'adverbiale-zeit', text: 'am Montag.' },
+    ],
+    tr: { ru: 'Новая коллега из Берлина начинает в понедельник.' },
+    note: { ru: '«neue» и «aus Berlin» — определения внутри подлежащего.' },
+  },
+  {
+    tier: 'office',
+    parts: [
+      { role: 'subjekt', text: 'Der Bericht, den Sie gestern geschickt haben,' },
+      { role: 'praedikat', text: 'ist' },
+      { role: 'praedikat', text: 'sehr hilfreich.' },
+    ],
+    tr: { ru: 'Отчёт, который вы вчера прислали, очень полезен.' },
+    note: { ru: 'Придаточное «den Sie gestern geschickt haben» — определение внутри подлежащего.' },
+  },
+]} />

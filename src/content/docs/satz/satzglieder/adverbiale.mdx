@@ -1,0 +1,152 @@
+---
+title: { de: Adverbiale Bestimmungen, ru: Обстоятельства }
+level: A2
+order: 4
+status: unreviewed
+tags: [Adverbiale, adverbiale Bestimmung, Angabe, обстоятельство, temporal, lokal, kausal, modal, wann, wo, warum, wie, TeKaMoLo]
+---
+import P from '~/components/P.astro';
+import Ex from '~/components/Ex.astro';
+import Rule from '~/components/Rule.astro';
+import BiTable from '~/components/BiTable.astro';
+import Analysis from '~/components/Analysis.astro';
+
+<P t={{
+  de: 'Eine adverbiale Bestimmung ist ein Satzglied, das die Umstände nennt: wann, wo, warum, wie etwas geschieht. Meist verlangt das Verb sie nicht, und sie kann wegfallen (Wir arbeiten **heute im Büro**. → Wir arbeiten.).',
+  ru: 'Обстоятельство — член предложения, который сообщает условия действия: когда, где, почему, как. Обычно глагол его не требует, и его можно опустить (Мы **сегодня** работаем **в офисе** → Мы работаем).',
+}} />
+
+<BiTable
+  head={[{ de: 'Art', ru: 'Вид' }, { de: 'Frage', ru: 'Вопрос' }, { de: 'Beispiel', ru: 'Пример' }]}
+  rows={[
+    [{ de: 'Zeit (temporal)', ru: 'обстоятельство времени' }, { de: 'Wann? Wie lange? Seit wann?', ru: 'Когда? Как долго? С каких пор?' }, { de: 'Das Meeting beginnt **um neun**.', ru: 'Встреча начинается **в девять**.' }],
+    [{ de: 'Ort (lokal)', ru: 'обстоятельство места' }, { de: 'Wo? Wohin? Woher?', ru: 'Где? Куда? Откуда?' }, { de: 'Er fährt **nach Hamburg**.', ru: 'Он едет **в Гамбург**.' }],
+    [{ de: 'Grund (kausal)', ru: 'обстоятельство причины' }, { de: 'Warum? Weshalb?', ru: 'Почему?' }, { de: '**Wegen des Updates** ist das System offline.', ru: '**Из-за обновления** система недоступна.' }],
+    [{ de: 'Art und Weise (modal)', ru: 'обстоятельство образа действия' }, { de: 'Wie?', ru: 'Как?' }, { de: 'Wir schicken die Daten **verschlüsselt**.', ru: 'Мы отправляем данные **в зашифрованном виде**.' }],
+    [{ de: 'Zweck (final)', ru: 'обстоятельство цели' }, { de: 'Wozu?', ru: 'Зачем? Для чего?' }, { de: '**Zur Sicherheit** speichern wir alles doppelt.', ru: '**Для надёжности** мы сохраняем всё дважды.' }],
+    [{ de: 'Gegengrund (konzessiv)', ru: 'обстоятельство уступки' }, { de: 'Trotz wessen?', ru: 'Несмотря на что?' }, { de: '**Trotz der Probleme** läuft das Projekt weiter.', ru: '**Несмотря на проблемы** проект продолжается.' }],
+  ]}
+/>
+
+<P t={{
+  de: 'Eine adverbiale Bestimmung kann verschiedene Formen haben:',
+  ru: 'Обстоятельство может иметь разную форму:',
+}} />
+
+<BiTable
+  head={[{ de: 'Form', ru: 'Форма' }, { de: 'Beispiel', ru: 'Пример' }]}
+  rows={[
+    [{ de: 'Adverb', ru: 'наречие' }, { de: 'Ich komme **morgen**.', ru: 'Я приду **завтра**.' }],
+    [{ de: 'Präposition + Nomen', ru: 'предлог + существительное' }, { de: 'Ich komme **am Montag**.', ru: 'Я приду **в понедельник**.' }],
+    [{ de: 'Nomen im Akkusativ', ru: 'существительное в винительном падеже' }, { de: 'Ich komme **nächste Woche**.', ru: 'Я приду **на следующей неделе**.' }],
+    [{ de: 'Nebensatz', ru: 'придаточное предложение' }, { de: 'Ich komme, **sobald ich fertig bin**.', ru: 'Я приду, **как только закончу**.' }],
+  ]}
+/>
+
+<P t={{
+  de: 'Reihenfolge mehrerer adverbialer Bestimmungen (TeKaMoLo): Kapitel „Wortstellung“. Nebensätze als adverbiale Bestimmungen: Kapitel „Nebensätze“.',
+  ru: 'Порядок нескольких обстоятельств (TeKaMoLo) — в разделе «Порядок слов». Придаточные в роли обстоятельств — в разделе «Придаточные предложения».',
+}} />
+
+<Rule title={{ de: 'Notwendige adverbiale Bestimmung', ru: 'Обязательное обстоятельство' }} level="B2">
+<P t={{
+  de: 'Einige Verben verlangen eine adverbiale Bestimmung; ohne sie ist der Satz unvollständig: wohnen, sich befinden, dauern, liegen, legen, stellen u. a.',
+  ru: 'Некоторые глаголы требуют обстоятельства; без него предложение неполное: wohnen (жить), sich befinden (находиться), dauern (длиться), liegen (лежать), legen (класть), stellen (ставить) и др.',
+}} />
+<Ex t={{
+  de: 'Sie wohnt **in Köln**. / Das Meeting dauert **zwei Stunden**.',
+  ru: 'Она живёт **в Кёльне**. / Встреча длится **два часа**.',
+}} />
+</Rule>
+
+<Rule title={{ de: 'Adverbiale Bestimmung der Bedingung', ru: 'Обстоятельство условия' }} level="B2">
+<P t={{
+  de: 'Eine adverbiale Bestimmung der Bedingung nennt, unter welcher Bedingung etwas geschieht. Oft steht bei + Dativ statt eines wenn-Satzes.',
+  ru: 'Обстоятельство условия сообщает, при каком условии происходит действие. Часто вместо придаточного с wenn стоит bei + дательный падеж.',
+}} />
+<Ex t={{
+  de: '**Bei Problemen** rufen Sie den Support an. (= Wenn es Probleme gibt, …)',
+  ru: '**При проблемах** звоните в поддержку. (= Если возникнут проблемы, …)',
+}} />
+</Rule>
+
+<Rule title={{ de: 'Adverbiale Bestimmung des Mittels', ru: 'Обстоятельство средства' }} level="B2">
+<P t={{
+  de: 'Eine adverbiale Bestimmung des Mittels nennt, womit oder wodurch etwas geschieht: mit, durch, mittels u. a.',
+  ru: 'Обстоятельство средства сообщает, чем или благодаря чему совершается действие: mit (с, при помощи), durch (через, благодаря), mittels (посредством) и др.',
+}} />
+<Ex t={{
+  de: '**Mit diesem Tool** sparen wir Zeit. / **Durch die Automatisierung** sinken die Kosten.',
+  ru: '**С этим инструментом** мы экономим время. / **Благодаря автоматизации** снижаются расходы.',
+}} />
+</Rule>
+
+<Rule title={{ de: 'Adverbiale Bestimmung des Gegensatzes', ru: 'Обстоятельство противопоставления' }} level="B2">
+<P t={{
+  de: 'Eine adverbiale Bestimmung des Gegensatzes nennt, was statt etwas anderem geschieht: statt, anstelle, im Gegensatz zu u. a.',
+  ru: 'Обстоятельство противопоставления сообщает, что происходит вместо чего-то другого: statt, anstelle (вместо), im Gegensatz zu (в отличие от) и др.',
+}} />
+<Ex t={{
+  de: '**Statt einer E-Mail** rief sie an.',
+  ru: '**Вместо письма** она позвонила.',
+}} />
+</Rule>
+
+<Rule title={{ de: 'Kommentaradverbiale', ru: 'Оценочное обстоятельство' }} level="B1">
+<P t={{
+  de: 'Ein Kommentaradverbiale bewertet den ganzen Satz, nicht nur das Verb: leider, hoffentlich, glücklicherweise, vermutlich u. a.',
+  ru: 'Оценочное обстоятельство оценивает всё предложение, а не только действие: leider (к сожалению), hoffentlich (надеюсь), glücklicherweise (к счастью), vermutlich (вероятно) и др.',
+}} />
+<Ex t={{
+  de: '**Leider** ist der Server noch offline.',
+  ru: '**К сожалению**, сервер всё ещё недоступен.',
+}} />
+</Rule>
+
+<Rule title={{ de: 'Adverbiale Bestimmung im Genitiv', ru: 'Обстоятельство в родительном падеже' }} level="C1">
+<P t={{
+  de: 'Einige adverbiale Bestimmungen stehen im Genitiv. Es sind feste, meist gehobene Wendungen: eines Tages, eines Abends, letzten Endes, meines Erachtens u. a.',
+  ru: 'Некоторые обстоятельства стоят в родительном падеже. Это устойчивые, чаще книжные обороты: eines Tages (однажды), eines Abends (однажды вечером), letzten Endes (в конечном счёте), meines Erachtens (по моему мнению) и др.',
+}} />
+<Ex t={{
+  de: '**Eines Tages** kam die Antwort.',
+  ru: '**Однажды** пришёл ответ.',
+}} />
+</Rule>
+
+## Beispiele <span class="tr" lang="ru">Примеры</span>
+
+<Analysis examples={[
+  {
+    tier: 'basic',
+    parts: [
+      { role: 'adverbiale-zeit', text: 'Morgen' },
+      { role: 'praedikat', text: 'fahre' },
+      { role: 'subjekt', text: 'ich' },
+      { role: 'adverbiale-ort', text: 'nach München.' },
+    ],
+    tr: { ru: 'Завтра я еду в Мюнхен.' },
+  },
+  {
+    tier: 'advanced',
+    parts: [
+      { role: 'adverbiale-grund', text: 'Wegen des Regens' },
+      { role: 'praedikat', text: 'bleiben' },
+      { role: 'subjekt', text: 'wir' },
+      { role: 'adverbiale-zeit', text: 'heute' },
+      { role: 'adverbiale-ort', text: 'zu Hause.' },
+    ],
+    tr: { ru: 'Из-за дождя мы сегодня остаёмся дома.' },
+  },
+  {
+    tier: 'office',
+    parts: [
+      { role: 'subjekt', text: 'Der Bericht' },
+      { role: 'praedikat', text: 'wird' },
+      { role: 'adverbiale-zeit', text: 'nächste Woche' },
+      { role: 'adverbiale-art', text: 'per E-Mail' },
+      { role: 'praedikat', text: 'verschickt.' },
+    ],
+    tr: { ru: 'Отчёт разошлют на следующей неделе по электронной почте.' },
+  },
+]} />
