@@ -24,7 +24,8 @@ Created in PLAN stage 1:
 ## Content
 - New or changed articles get `status: unreviewed`; set `reviewed` only after the owner approves.
 - Article texts are written top-down along `docs/outline.md` and approved by the owner in chat before they are coded into MDX. Approved texts are saved in `docs/texts/` (one file per top-level branch) so they survive between sessions.
-- Text style: impersonal, as short as possible, only the essence of the rule; no general explanations (e.g. what a sentence is). Terms are explained concretely (with types and examples), not just named. Tables are translated cell by cell: the RU translation sits in the same cell under the German, in italics and a smaller font (all tables, present and future). Examples that analyse a sentence label each part above it. Blocks follow meaning, not line breaks: a rule and the examples that illustrate it share one card (`<Rule>`). One node per review round, never a batch.
+- Text style: impersonal, as short as possible, only the essence of the rule; no general explanations (e.g. what a sentence is). Terms are explained concretely (with types and examples), not just named. Tables are translated cell by cell: the RU translation sits in the same cell under the German, in italics and a smaller font (all tables, present and future). Examples that analyse a sentence label each part above it. Blocks follow meaning, not line breaks: a rule and the examples that illustrate it share one card (`<Rule>`). One node per review round unless the owner asks for several at once.
+- Coverage: every rule of the topic up to C2 (owner, 2026-11-23). The core of the rule comes first; rarer and finer points follow in a "Vertiefung — Для продвинутых" section, each with its level.
 - Every German word in examples must resolve in the dictionary: add missing entries, annotate ambiguous forms, mark proper names.
 
 ## Gotchas
