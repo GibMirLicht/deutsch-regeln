@@ -31,6 +31,8 @@ Ein Satzglied lässt sich nur als Ganzes umstellen, z. B. an die Stelle vor dem 
 
 ### Attribut — Определение
 
+Owner 2026-11-23: now that 1.1.5 Attribute exists, this section shrinks to a footnote pointing there (e.g. "Attribute sind Teile eines Satzglieds, keine eigenen Satzglieder — mehr in 1.1.5."); applied when 1.1.3–1.1.5 are coded.
+
 Ein Attribut beschreibt ein Nomen näher. Es steht im selben Satzglied wie das Nomen und ist kein eigenes Satzglied: Bei der Umstellprobe bleibt es beim Nomen.
 *Определение уточняет существительное: какой, чей, который. Оно входит в тот же член предложения, что и существительное, и самостоятельным членом предложения не является: при перестановке остаётся при своём существительном.*
 
@@ -139,3 +141,7 @@ One table, no tier labels (owner, 2026-11-22). Each part carries its label (DE, 
 | **Die Kollegen aus dem Vertrieb** | **haben** | **die Präsentation** | **schon** | **vorbereitet.** |
 
 *Коллеги из отдела продаж уже подготовили презентацию. «aus dem Vertrieb» — определение внутри подлежащего.*
+
+## 1.1.3 Objekte, 1.1.4 Adverbiale Bestimmungen, 1.1.5 Attribute
+
+Approved 2026-11-23 in the Claude Doc "1.1.3–1.1.5 Objekte, Adverbiale, Attribute" with the owner's notes applied directly while coding (owner asked to stop review rounds and code). Source of truth: `src/content/docs/satz/satzglieder/objekte.mdx`, `adverbiale.mdx`, `attribute.mdx`. The 1.1 Attribut section became a footnote to 1.1.5.

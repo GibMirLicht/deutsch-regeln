@@ -1,0 +1,173 @@
+---
+title: { de: Objekte, ru: Дополнения }
+level: A1
+order: 3
+status: unreviewed
+tags: [Objekt, Objekte, дополнение, Akkusativobjekt, Dativobjekt, Präpositionalobjekt, Genitivobjekt, Rektion, управление, wen, wem, worauf]
+---
+import P from '~/components/P.astro';
+import Ex from '~/components/Ex.astro';
+import Rule from '~/components/Rule.astro';
+import BiTable from '~/components/BiTable.astro';
+import Analysis from '~/components/Analysis.astro';
+
+<P t={{
+  de: 'Ein Objekt ist ein Satzglied, das das Verb verlangt: Ohne es ist der Satz unvollständig (Ich brauche **einen Laptop**. — nicht: Ich brauche.). Welches Objekt nötig ist, bestimmt das Verb (Rektion).',
+  ru: 'Дополнение — член предложения, которого требует глагол: без него предложение неполное (Ich brauche **einen Laptop** — «Мне нужен **ноутбук**»; просто «Ich brauche» сказать нельзя). Какое дополнение нужно, определяет сам глагол (управление).',
+}} />
+
+<BiTable
+  head={[{ de: 'Objekt', ru: 'Дополнение' }, { de: 'Frage', ru: 'Вопрос' }, { de: 'Beispiel', ru: 'Пример' }]}
+  rows={[
+    [{ de: 'Akkusativobjekt', ru: 'в винительном падеже' }, { de: 'Wen? Was?', ru: 'Кого? Что?' }, { de: 'Ich schreibe **eine E-Mail**.', ru: 'Я пишу **письмо**.' }],
+    [{ de: 'Dativobjekt', ru: 'в дательном падеже' }, { de: 'Wem?', ru: 'Кому?' }, { de: 'Die Software gehört **der Firma**.', ru: 'Программа принадлежит **фирме**.' }],
+    [{ de: 'Präpositionalobjekt', ru: 'предложное: с предлогом, который требует глагол' }, { de: 'Worauf? Worum? Auf wen? …', ru: 'Чего? Чем? Кого? …' }, { de: 'Wir kümmern uns **um das Problem**.', ru: 'Мы занимаемся **этой проблемой**.' }],
+    [{ de: 'Genitivobjekt (selten, gehoben)', ru: 'в родительном падеже (редко, книжное)' }, { de: 'Wessen?', ru: 'Чего? Кого?' }, { de: 'Der Vertrag bedarf **einer Unterschrift**.', ru: 'Договор требует **подписи**.' }],
+  ]}
+/>
+
+<Rule title={{ de: 'Präpositionalobjekt oder adverbiale Bestimmung', ru: 'Предложное дополнение или обстоятельство' }}>
+<P t={{
+  de: 'Ein **Präpositionalobjekt** ist ein Objekt mit einer Präposition, die das Verb fest verlangt (warten **auf**, sich kümmern **um**). Die Präposition lässt sich nicht austauschen; ersetzt wird das Objekt durch da(r)- + Präposition (darauf, darum).',
+  ru: '**Предложное дополнение** — дополнение с предлогом, который жёстко требует глагол (warten auf — ждать, sich kümmern um — заниматься). Предлог нельзя заменить другим; само дополнение заменяется словом da(r)- + предлог (darauf, darum).',
+}} />
+<P t={{
+  de: 'Eine **adverbiale Bestimmung** nennt einen Umstand (wann, wo, warum, wie) und hängt nicht vom Verb ab: Die Präposition folgt der Bedeutung (an der Haltestelle, im Büro, vor dem Haus); ersetzt wird sie durch dort, da, dann.',
+  ru: '**Обстоятельство** сообщает, когда, где, почему или как происходит действие, и от глагола не зависит: предлог выбирается по смыслу (an der Haltestelle, im Büro, vor dem Haus); заменяется оно словами dort, da, dann.',
+}} />
+<P t={{
+  de: 'In beiden Sätzen steht dasselbe Verb, aber nur auf gehört zu warten:',
+  ru: 'В обоих предложениях один и тот же глагол, но к warten относится только auf:',
+}} />
+<Ex t={{
+  de: 'Worauf warten wir? — **Auf den Bus.** → Wir warten **darauf**. (Präpositionalobjekt)',
+  ru: 'Чего мы ждём? — **Автобус.** → Мы ждём **его**. (предложное дополнение)',
+}} />
+<Ex t={{
+  de: 'Wo warten wir? — **An der Haltestelle.** → Wir warten **dort**. (adverbiale Bestimmung)',
+  ru: 'Где мы ждём? — **На остановке.** → Мы ждём **там**. (обстоятельство)',
+}} />
+</Rule>
+
+<Rule title={{ de: 'Zwei Objekte und ihre Reihenfolge', ru: 'Два дополнения и их порядок' }} level="A2">
+<P t={{
+  de: 'Viele Verben haben zwei Objekte: eine Person als Dativobjekt und eine Sache als Akkusativobjekt (geben, schicken, zeigen, erklären u. a.). Die Reihenfolge hängt davon ab, ob die Objekte Nomen oder Pronomen sind.',
+  ru: 'Многие глаголы имеют два дополнения: лицо — дополнение в дательном падеже, предмет — в винительном (geben, schicken, zeigen, erklären и др.). Порядок зависит от того, выражены дополнения существительными или местоимениями.',
+}} />
+</Rule>
+
+<BiTable
+  head={[{ de: 'Objekte', ru: 'Дополнения' }, { de: 'Reihenfolge', ru: 'Порядок' }, { de: 'Beispiel', ru: 'Пример' }]}
+  rows={[
+    [{ de: 'zwei Nomen', ru: 'два существительных' }, { de: 'Dativ vor Akkusativ', ru: 'дательный перед винительным' }, { de: 'Ich schicke **dem Kunden** **das Angebot**.', ru: 'Я отправляю **клиенту** **предложение**.' }],
+    [{ de: 'Pronomen und Nomen', ru: 'местоимение и существительное' }, { de: 'Pronomen zuerst', ru: 'сначала местоимение' }, { de: 'Ich schicke **ihm** das Angebot. / Ich schicke **es** dem Kunden.', ru: 'Я отправляю **ему** предложение. / Я отправляю **его** клиенту.' }],
+    [{ de: 'zwei Pronomen', ru: 'два местоимения' }, { de: 'Akkusativ vor Dativ', ru: 'винительный перед дательным' }, { de: 'Ich schicke **es** **ihm**.', ru: 'Я отправляю **его** **ему**.' }],
+  ]}
+/>
+
+<P t={{
+  de: 'Welche Verben welches Objekt verlangen: Kapitel „Verben und ihre Ergänzungen (Rektion)“.',
+  ru: 'Какие глаголы требуют какого дополнения — в разделе «Управление глаголов».',
+}} />
+
+<Rule title={{ de: 'Objekt als Nebensatz oder Infinitiv', ru: 'Дополнение-придаточное или инфинитив' }} level="B1">
+<P t={{
+  de: 'Ein Objekt kann ein ganzer Nebensatz (mit dass, ob oder einem Fragewort) oder ein Infinitiv mit zu sein.',
+  ru: 'Дополнением может быть целое придаточное предложение (с dass, ob или вопросительным словом) или инфинитив с zu.',
+}} />
+<Ex t={{
+  de: 'Ich hoffe, **dass alles klappt**. / Ich hoffe, **bald fertig zu sein**.',
+  ru: 'Надеюсь, **что всё получится**. / Надеюсь **скоро закончить**.',
+}} />
+</Rule>
+
+<Rule title={{ de: 'Korrelat beim Präpositionalobjekt', ru: 'Коррелят при предложном дополнении' }} level="B2">
+<P t={{
+  de: 'Ist ein Präpositionalobjekt ein Nebensatz, steht im Hauptsatz oft da(r)- + Präposition als Platzhalter für dieses Objekt (Korrelat): darauf, daran, dafür u. a.',
+  ru: 'Если предложное дополнение выражено придаточным, в главном предложении часто стоит da(r)- + предлог как заместитель этого дополнения (коррелят): darauf, daran, dafür и др. По-русски ему соответствует «тому, что…», «за тем, чтобы…».',
+}} />
+<Ex t={{
+  de: 'Ich freue mich **darauf**, dass du kommst. / Wir achten **darauf**, dass alles pünktlich ist.',
+  ru: 'Я рад **тому**, что ты придёшь. / Мы следим **за тем**, чтобы всё было вовремя.',
+}} />
+</Rule>
+
+<Rule title={{ de: 'Zwei Akkusativobjekte', ru: 'Два дополнения в винительном падеже' }} level="C1">
+<P t={{
+  de: 'Einige Verben haben zwei Akkusativobjekte: kosten, lehren, abfragen u. a. Die Person steht vor der Sache.',
+  ru: 'Некоторые глаголы имеют два дополнения в винительном падеже: kosten, lehren, abfragen и др. Лицо стоит перед предметом.',
+}} />
+<Ex t={{
+  de: 'Das kostet **mich** **viel Zeit**. / Sie lehrt **die Praktikanten** **die Grundlagen**.',
+  ru: 'Это стоит **мне** **много времени**. / Она учит **практикантов** **основам**.',
+}} />
+</Rule>
+
+<Rule title={{ de: 'Gleichsetzungsakkusativ', ru: 'Винительный отождествления' }} level="C1">
+<P t={{
+  de: 'Nach nennen, schimpfen u. a. steht neben dem Akkusativobjekt eine zweite Bezeichnung im Akkusativ, die dasselbe meint.',
+  ru: 'После nennen (называть), schimpfen (обзывать) и др. рядом с дополнением в винительном падеже стоит второе название в винительном, которое обозначает то же самое. По-русски здесь творительный падеж.',
+}} />
+<Ex t={{
+  de: 'Man nennt **ihn** **einen Experten**.',
+  ru: 'Его называют **экспертом**.',
+}} />
+</Rule>
+
+<Rule title={{ de: 'Akkusativ- und Genitivobjekt in der Rechtssprache', ru: 'Дополнения в винительном и родительном в юридическом языке' }} level="C2">
+<P t={{
+  de: 'Verben wie anklagen, beschuldigen, verdächtigen, überführen u. a. haben zwei Objekte: die Person als Akkusativobjekt, die Tat als Genitivobjekt.',
+  ru: 'Глаголы вроде anklagen (обвинять в суде), beschuldigen (обвинять), verdächtigen (подозревать), überführen (уличать) и др. имеют два дополнения: лицо — дополнение в винительном падеже, проступок — дополнение в родительном.',
+}} />
+<Ex t={{
+  de: 'Man beschuldigt **ihn** **des Betrugs**.',
+  ru: 'Его обвиняют **в мошенничестве**.',
+}} />
+</Rule>
+
+<Rule title={{ de: 'Freier Dativ', ru: 'Свободный дательный' }} level="C1–C2">
+<P t={{
+  de: 'Ein freier Dativ ist ein zusätzliches Dativobjekt, das das Verb nicht verlangt. Es nennt, für wen etwas geschieht, wessen Körperteil gemeint ist oder (umgangssprachlich) die Anteilnahme des Sprechers.',
+  ru: 'Свободный дательный — дополнительное дополнение в дательном падеже, которого глагол не требует. Оно указывает, для кого совершается действие, о чьей части тела речь, или (в разговорной речи) показывает участие говорящего.',
+}} />
+<Ex t={{
+  de: 'Er trägt **mir** den Koffer. / Ich wasche **mir** die Hände. / Komm **mir** nicht zu spät!',
+  ru: 'Он несёт **мне** чемодан. / Я мою руки. / Смотри **у меня**, не опаздывай!',
+}} />
+</Rule>
+
+## Beispiele <span class="tr" lang="ru">Примеры</span>
+
+<Analysis examples={[
+  {
+    tier: 'basic',
+    parts: [
+      { role: 'subjekt', text: 'Ich' },
+      { role: 'praedikat', text: 'kaufe' },
+      { role: 'akkusativobjekt', text: 'ein Ticket.' },
+    ],
+    tr: { ru: 'Я покупаю билет.' },
+  },
+  {
+    tier: 'advanced',
+    parts: [
+      { role: 'subjekt', text: 'Der Chef' },
+      { role: 'praedikat', text: 'hat' },
+      { role: 'dativobjekt', text: 'uns' },
+      { role: 'akkusativobjekt', text: 'die Ergebnisse' },
+      { role: 'praedikat', text: 'erklärt.' },
+    ],
+    tr: { ru: 'Начальник объяснил нам результаты.' },
+  },
+  {
+    tier: 'office',
+    parts: [
+      { role: 'subjekt', text: 'Wir' },
+      { role: 'praedikat', text: 'warten' },
+      { role: 'adverbiale-zeit', text: 'seit Montag' },
+      { role: 'praepositionalobjekt', text: 'auf die Freigabe des Kunden.' },
+    ],
+    tr: { ru: 'Мы с понедельника ждём одобрения клиента.' },
+    note: { ru: '«des Kunden» — определение внутри дополнения.' },
+  },
+]} />

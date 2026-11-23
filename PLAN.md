@@ -10,6 +10,6 @@
 | 6 | Dictionary data | Source chosen with owner; import script to `data/dictionary/`; own-entries file; word card component; sources page if license requires | import script test on sample; e2e word card renders | todo |
 | 7 | Words in examples | Form → lemma index (umlaut/ß-normalized, chunked); clickable example words; ambiguity annotation + candidate list; proper-name marker; build check "every example word in dictionary"; topic/level/alphabet lists | unit tests (ging→gehen, Haeuser→Haus); check fails on unknown word; e2e click opens card | todo |
 | 8 | Search | Header field, hotkey `/`, two groups; Pagefind with tag > title > text and `weight`; RU queries; level filter | unit tests for ranking; e2e: "Dativ", "дательный", "ging" | todo |
-| 9+ | Content | One top-level tree section per stage, status `unreviewed`; owner reviews on site, then `reviewed` | `npm run check` (schema + dictionary coverage) | todo |
+| 9+ | Content | One top-level tree section per stage, status `unreviewed`; owner reviews on site, then `reviewed` | `npm run check` (schema + dictionary coverage) | in progress: 1.1 Satzglieder with 1.1.1–1.1.5 coded (unreviewed); scope A1–C2 |
 
 Stages 1–8 end with the SPEC.md end-to-end check items they cover.

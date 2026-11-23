@@ -1,7 +1,7 @@
 # SPEC: deutsch-regeln
 
 ## Goal
-A personal, well-organized reference of German grammar rules (levels A1–C1) with examples, an integrated dictionary, search, and per-user display settings. v1 is a reference only; exercises come in v2.
+A personal, well-organized reference of German grammar rules (levels A1–C2: all rules, owner 2026-11-23) with examples, an integrated dictionary, search, and per-user display settings. v1 is a reference only; exercises come in v2.
 
 ## Users and scenarios
 - Single user (the owner), on desktop and phone. The site is reachable by anyone with the link but is not indexed (`noindex`).
@@ -19,7 +19,7 @@ A personal, well-organized reference of German grammar rules (levels A1–C1) wi
 - Tree view: expanding a node lazy-loads the article content inline below the node.
 - Every article also has its own URL; opening it shows the tree with that node expanded.
 - A link to another article opens it in the side panel, with a control to navigate to it fully.
-- Level (A1–C1) is a label on each article and word, plus a filter in search results. It does not hide or change the tree.
+- Level (A1–C2) is a label on each article, each advanced rule inside an article, and each word, plus a filter in search results. It does not hide or change the tree.
 
 ### Article content
 - Main text in German. Under each paragraph a Russian translation line (smaller, italic). A global toggle shows/hides translations. The data model keeps translations as a per-language map so English can be added later.

@@ -52,3 +52,19 @@ test('all content cards have the same width; a rule and its example share one ca
   await expect(rule.locator('.bi')).toContainText('Umstellprobe');
   await expect(rule.locator('blockquote.ex')).toContainText('Am Montag beginnt');
 });
+
+for (const [path, title] of [
+  ['satz/satzglieder/objekte/', 'Objekte'],
+  ['satz/satzglieder/adverbiale/', 'Adverbiale Bestimmungen'],
+  ['satz/satzglieder/attribute/', 'Attribute'],
+] as const) {
+  test(`${title}: renders, rule cards carry title and level, fits the screen`, async ({ page }) => {
+    await page.goto(path);
+    await expect(page.getByRole('heading', { level: 1 })).toContainText(title);
+    const titled = page.locator('.rule h3.rule-title').filter({ has: page.locator('.level') });
+    expect(await titled.count()).toBeGreaterThan(3);
+    await expect(page.locator('.analysis-row')).toHaveCount(3);
+    const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+    expect(overflow).toBeLessThanOrEqual(0);
+  });
+}
