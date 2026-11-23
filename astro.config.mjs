@@ -25,6 +25,8 @@ export default defineConfig({
       ],
       // The rule tree replaces the sidebar; no "On this page" list (owner, 2026-11-22).
       tableOfContents: false,
+      // No previous/next links under the articles (owner, 2026-11-23); navigation is the tree.
+      pagination: false,
       components: {
         Sidebar: './src/components/overrides/Sidebar.astro',
         PageTitle: './src/components/overrides/PageTitle.astro',
